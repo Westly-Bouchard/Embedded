@@ -87,6 +87,9 @@ uint16_t scale[NUM_OCTAVES * 12] = {
 #define NUM_SONGS 6
 #define SONG_MAX_LEN 20
 
+#define NOTES 0
+#define DURATIONS 1
+
 // One array for each song
 // Points to two arrays, one for notes, one for durations
 uint16_t songs[NUM_SONGS][2][SONG_MAX_LEN] = {
@@ -281,7 +284,7 @@ void tmr1ISR(void) {
     // If playing a note, set the count for the proper frequency and
     // toggle the speaker pin
     if (playNote) {
-        TMR1_CounterSet(TMR1_MAX_COUNT - scale[songs[songNumber][0][noteIndex]]);
+        TMR1_CounterSet(TMR1_MAX_COUNT - scale[songs[songNumber][NOTES][noteIndex]]);
         SPEAKER_PIN_Toggle();
     }
 }
@@ -294,7 +297,7 @@ void tmr0ISR(void) {
             wasResting = false;
             
             playNote = true;
-            TMR0_CounterSet(TMR0_MAX_COUNT - songs[songNumber][1][noteIndex]);
+            TMR0_CounterSet(TMR0_MAX_COUNT - songs[songNumber][DURATIONS][noteIndex]);
         } else {
             wasResting = true;
             
@@ -354,7 +357,7 @@ void rhythmPractice(void) {
         uint16_t duration = TMR0_CounterGet();
         
         // If the duration was outside of the range, play failure music
-        if (duration < songs[3][1][i] - DELTA || duration > songs[3][1][i] + DELTA) {
+        if (duration < songs[3][1][i] - DELTA || duration > songs[3][DURATIONS][i] + DELTA) {
             printf("You lose!\r\n");
             TMR0_TMRInterruptEnable();
             TMR0_Start();
