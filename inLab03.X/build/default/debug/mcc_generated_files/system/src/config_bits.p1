@@ -1,0 +1,77 @@
+Version 4.0 HI-TECH Software Intermediate Code
+"39 mcc_generated_files/system/src/config_bits.c
+[p x FOSC  =  INTIO67     ]
+"40
+[p x FCMEN  =  OFF     ]
+"41
+[p x IESO  =  OFF     ]
+"42
+[p x PLLCFG  =  OFF     ]
+"43
+[p x PRICLKEN  =  ON     ]
+"46
+[p x PWRTEN  =  OFF     ]
+"47
+[p x BOREN  =  SBORDIS     ]
+"48
+[p x BORV  =  190     ]
+"51
+[p x WDTEN  =  OFF     ]
+"52
+[p x WDTPS  =  32768     ]
+"55
+[p x HFOFST  =  ON     ]
+"56
+[p x MCLRE  =  EXTMCLR     ]
+"57
+[p x CCP2MX  =  PORTC1     ]
+"58
+[p x PBADEN  =  ON     ]
+"59
+[p x CCP3MX  =  PORTB5     ]
+"60
+[p x T3CMX  =  PORTC0     ]
+"61
+[p x P2BMX  =  PORTB5     ]
+"64
+[p x STVREN  =  ON     ]
+"65
+[p x LVP  =  ON     ]
+"66
+[p x XINST  =  OFF     ]
+"69
+[p x CP0  =  OFF     ]
+"70
+[p x CP1  =  OFF     ]
+"71
+[p x CP2  =  OFF     ]
+"72
+[p x CP3  =  OFF     ]
+"75
+[p x CPB  =  OFF     ]
+"76
+[p x CPD  =  OFF     ]
+"79
+[p x WRT0  =  OFF     ]
+"80
+[p x WRT1  =  OFF     ]
+"81
+[p x WRT2  =  OFF     ]
+"82
+[p x WRT3  =  OFF     ]
+"85
+[p x WRTC  =  OFF     ]
+"86
+[p x WRTB  =  OFF     ]
+"87
+[p x WRTD  =  OFF     ]
+"90
+[p x EBTR0  =  OFF     ]
+"91
+[p x EBTR1  =  OFF     ]
+"92
+[p x EBTR2  =  OFF     ]
+"93
+[p x EBTR3  =  OFF     ]
+"96
+[p x EBTRB  =  OFF     ]
