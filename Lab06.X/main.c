@@ -271,7 +271,7 @@ void transmitTxBuffer() {
             checkSum = IRtransmitBuffer[i];
             break;
         }
-        if(IRtransmitBuffer[i] == '\n') {
+        if(IRtransmitBuffer[i] == '\r') {
             lastCall = true;
         }
         printf("%c", IRtransmitBuffer[i]);
