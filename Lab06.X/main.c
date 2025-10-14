@@ -27,11 +27,19 @@
 
 enum EUSARTStates {IDLE, RXING_MSG, LAST_BYTE};
 
+
+//New Custom functions
 void myEUSART2ISR(void);
+void transmitByteData(char letter);
+void sendStartBit();
+void sendStopBit();
+
 char IRrecieveBuffer[MAX_BUFFER_SIZE];
 char IRtransmitBuffer[MAX_BUFFER_SIZE];
 uint8_t receiveBusy = false;
 uint8_t receiveNewMessage = false;
+uint16_t bitPeriod[6] = {53333, 13333, 6666, 3333, 1666, 833};
+uint8_t baudRateSelected = 1;
 
 //----------------------------------------------
 // Main "function"
@@ -40,10 +48,8 @@ uint8_t receiveNewMessage = false;
 void main(void) {
     uint8_t mask;
     uint8_t i;
-    uint8_t baudRateSelected = 1;
     char cmd;
     char letter = '0';
-    uint16_t bitPeriod[6] = {53333, 13333, 6666, 3333, 1666, 833};
 
     SYSTEM_Initialize();
     //Coulston Code
@@ -254,6 +260,58 @@ void main(void) {
         } // end if
     } // end while 
 } // end main
+
+void sendStartBit() {
+    // Preface character with a '0' bit
+    EPWM2_LoadDutyValue(LED_ON);
+    TMR1_CounterSet(0x10000 - bitPeriod[baudRateSelected]);
+    PIR1bits.TMR1IF = 0;
+    while (TMR1_HasOverflowOccured() == false);
+}
+
+void sendStopBit() {
+    // Need a stop bit to break up successive bytes
+    EPWM2_LoadDutyValue(LED_OFF);
+    TMR1_CounterSet(0x10000 - bitPeriod[baudRateSelected]);
+    PIR1bits.TMR1IF = 0;
+    while (TMR1_HasOverflowOccured() == false);
+}
+
+
+void transmitByteData(char letter) {
+    // LSB first
+    sendStartBit();
+    uint8_t mask = 0b00000001;
+    while (mask != 0) {
+        if ((letter & mask) != 0) EPWM2_LoadDutyValue(LED_OFF);
+        else EPWM2_LoadDutyValue(LED_ON);
+        mask = mask << 1;
+        TMR1_CounterSet(0x10000 - bitPeriod[baudRateSelected]);
+        PIR1bits.TMR1IF = 0;
+        while (TMR1_HasOverflowOccured() == false);
+    }
+    sendStartBit();
+}
+
+
+void transmitTxBuffer() {
+    uint8_t lastCall = false;
+    printf("Message: ");
+    uint8_t checkSum = 0;
+    for(int i = 0; i < MAX_BUFFER_SIZE - 1; i++) {
+        transmitByteData(IRtransmitBuffer[i]);
+        if(lastCall == true) {
+            checkSum = IRtransmitBuffer[i];
+            break;
+        }
+        if(IRtransmitBuffer == '\n') {
+            lastCall = true;
+        }
+        printf("%c", IRtransmitBuffer[i]);
+    }
+    printf("Checksum: %d",checkSum);   
+}
+
 
 void myEUSART2ISR(void) {
     static enum EUSARTStates rxState = IDLE;
