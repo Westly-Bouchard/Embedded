@@ -33,6 +33,9 @@ void myEUSART2ISR(void);
 void transmitByteData(char letter);
 void sendStartBit();
 void sendStopBit();
+void printBuffer();
+void createWriteBuffer();
+void transmitTxBuffer();
 
 char IRrecieveBuffer[MAX_BUFFER_SIZE];
 char IRtransmitBuffer[MAX_BUFFER_SIZE];
@@ -87,7 +90,6 @@ void main(void) {
         if (EUSART1_IsRxReady()) { // wait for incoming data on USART
             cmd = EUSART1_Read();
             switch (cmd) { // and do what it tells you to do
-
                     //--------------------------------------------
                     // Reply with help menu
                     //--------------------------------------------
@@ -116,37 +118,26 @@ void main(void) {
                     printf("z: Clear the terminal\r\n");
                     printf("b: set the Baud rate of the sent characters\r\n");
                     printf("p: send 1 pulse of 38kHz IR illumination with a duration of %d 1:1 prescaled TMR1 counts\r\n", bitPeriod[baudRateSelected]);
-                    printf("S: Send ""%c"" using IR transmitter\r\n", letter);
-                    printf("R: use EUSART2 to decode character\r\n");
+                    printf("S: Send a message using IR transmitter\r\n");
+                    printf("R: use EUSART2 to decode message\r\n");
                     printf("r: reset EUSART2\r\n");
+                    printf("m: create the message to send! (Create transmit buffer)\r\n");
                     printf("-------------------------------------------------\r\n");
                     break;
 
-                    //--------------------------------------------
-                    // Reply with "ok", used for PC to PIC test
-                    //--------------------------------------------
                 case 'o':
                     printf("o:	ok\r\n");
                     break;
-
-                    //--------------------------------------------
-                    // Reset the processor after clearing the terminal
-                    //--------------------------------------------                      
+                    
                 case 'Z':
                     for (i = 0; i < 40; i++) printf("\n");
                     RESET();
                     break;
-
-                    //--------------------------------------------
-                    // Clear the terminal
-                    //--------------------------------------------                      
+                   
                 case 'z':
                     for (i = 0; i < 40; i++) printf("\n");
                     break;
-
-                    //--------------------------------------------
-                    // Set the Baud rate - use MCC EUSART2 configuration register tab            
-                    //--------------------------------------------                    
+                 
                 case 'b':
                     printf("Choose the index of the target baud rate\r\n");
                     printf("0: 300 baud\r\n");
@@ -184,10 +175,6 @@ void main(void) {
                     printf("Baud rate assigned %02x:%02x\r\n", SPBRGH2, SPBRG2);
                     break;
 
-                    //--------------------------------------------
-                    // Turn on the IR LED for bitPeriod[baudRateSelected] TMR1 cnts
-                    // This function is inside the for-loop of the 'S' function
-                    //--------------------------------------------  
                 case 'p':
                     EPWM2_LoadDutyValue(LED_ON);
                     TMR1_CounterSet(0x10000 - bitPeriod[baudRateSelected]);
@@ -197,61 +184,24 @@ void main(void) {
                     printf("Pulse sent\r\n");
                     break;
 
-                    //--------------------------------------------
-                    // Transmit the bits of a ASCII character, LSB first including
-                    // a start and stop bit.
-                    //--------------------------------------------  
                 case 'S':
-                    // Preface character with a '0' bit
-                    EPWM2_LoadDutyValue(LED_ON);
-                    TMR1_CounterSet(0x10000 - bitPeriod[baudRateSelected]);
-                    PIR1bits.TMR1IF = 0;
-                    while (TMR1_HasOverflowOccured() == false);
-
-                    // LSB first
-                    mask = 0b00000001;
-                    while (mask != 0) {
-                        if ((letter & mask) != 0) EPWM2_LoadDutyValue(LED_OFF);
-                        else EPWM2_LoadDutyValue(LED_ON);
-                        mask = mask << 1;
-                        TMR1_CounterSet(0x10000 - bitPeriod[baudRateSelected]);
-                        PIR1bits.TMR1IF = 0;
-                        while (TMR1_HasOverflowOccured() == false);
-                    }
-
-                    // Need a stop bit to break up successive bytes
-                    EPWM2_LoadDutyValue(LED_OFF);
-                    TMR1_CounterSet(0x10000 - bitPeriod[baudRateSelected]);
-                    PIR1bits.TMR1IF = 0;
-                    while (TMR1_HasOverflowOccured() == false);
-
-                    printf("just sent %c    %x\r\n", letter, letter);
-                    letter += 1;
+                    transmitTxBuffer();
                     break;
 
-                    //--------------------------------------------
-                    // Read the a character from EUSART2 FIFO
-                    // It's safe to use EUSART2_Read because RC2IF = 1
-                    //--------------------------------------------
+                case 'm':
+                    createWriteBuffer();
+                    break;
+                    
                 case 'R':
-                    if (PIR3bits.RC2IF == 1)
-                        printf("Just read in %c from EUSART2\r\n", RCREG2);
-                    else
-                        printf("Nothing received from EUSART2\r\n");
+                    printBuffer();
                     break;
-
-                    //--------------------------------------------
-                    // reset EUSART2 in case it needs doing
-                    //--------------------------------------------                
+            
                 case 'r':
                     RCSTA2bits.CREN = 0; // Try restarting EUSART2
                     RCSTA2bits.CREN = 1;
                     printf("Just reset EUSART2\r\n");
                     break;
 
-                    //--------------------------------------------
-                    // If something unknown is hit, tell user
-                    //--------------------------------------------
                 default:
                     printf("Unknown key %c\r\n", cmd);
                     break;
@@ -260,6 +210,23 @@ void main(void) {
         } // end if
     } // end while 
 } // end main
+
+void printBuffer() {
+    if(receiveNewMessage == true) {
+        printf("Message: ");
+        uint8_t i = 0;
+        for(i = 0; i < MAX_BUFFER_SIZE - 1; i++) {
+            printf("%c",IRrecieveBuffer[i]);
+            if(IRrecieveBuffer[i] == '\n') {
+                break;
+            }
+        }
+        printf("Checksum: %d",IRrecieveBuffer[i+1]);
+        receiveNewMessage = false;
+    } else {
+        printf("There is no new message!\r\n");
+    }
+}
 
 void sendStartBit() {
     // Preface character with a '0' bit
@@ -281,7 +248,7 @@ void sendStopBit() {
 void transmitByteData(char letter) {
     // LSB first
     sendStartBit();
-    uint8_t mask = 0b00000001;
+    char mask = 0b00000001;
     while (mask != 0) {
         if ((letter & mask) != 0) EPWM2_LoadDutyValue(LED_OFF);
         else EPWM2_LoadDutyValue(LED_ON);
@@ -290,7 +257,7 @@ void transmitByteData(char letter) {
         PIR1bits.TMR1IF = 0;
         while (TMR1_HasOverflowOccured() == false);
     }
-    sendStartBit();
+    sendStopBit();
 }
 
 
@@ -304,14 +271,13 @@ void transmitTxBuffer() {
             checkSum = IRtransmitBuffer[i];
             break;
         }
-        if(IRtransmitBuffer == '\n') {
+        if(IRtransmitBuffer[i] == '\n') {
             lastCall = true;
         }
         printf("%c", IRtransmitBuffer[i]);
     }
     printf("Checksum: %d",checkSum);   
 }
-
 
 void myEUSART2ISR(void) {
     static enum EUSARTStates rxState = IDLE;
@@ -341,6 +307,7 @@ void createWriteBuffer() {
     char cmd = 0;
     // setup before starting to read in case 'm'
     uint8_t i = 0;
+    printf("Please enter your message\r\n>");
 	while (EUSART1_IsRxReady()); // waiting for 'm' to clear
 	for (i = 0; i < MAX_BUFFER_SIZE - 1; i++) {
 		while (!EUSART1_IsRxReady()); // waiting until character is received
@@ -355,6 +322,7 @@ void createWriteBuffer() {
 		// leave loop if recieve '\r'
 		// append cmd to buffer, add to checksum, print cmd
     }
+    printf("\n\rThank you message has been stored\r\n");
     IRtransmitBuffer[i+1] = '\0';
     IRtransmitBuffer[i+2] = checkSum;
 }
