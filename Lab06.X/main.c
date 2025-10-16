@@ -43,6 +43,7 @@ uint8_t receiveBusy = false;
 uint8_t receiveNewMessage = false;
 uint16_t bitPeriod[6] = {53333, 13333, 6666, 3333, 1666, 833};
 uint8_t baudRateSelected = 1;
+uint8_t rxBufIDX = 0;
 
 //----------------------------------------------
 // Main "function"
@@ -213,15 +214,14 @@ void main(void) {
 
 void printBuffer() {
     if(receiveNewMessage == true) {
-        printf("Message: ");
-        uint8_t i = 0;
-        for(i = 0; i < MAX_BUFFER_SIZE - 1; i++) {
+        printf("Recived Message: ");
+        for(uint8_t i = 0; i < MAX_BUFFER_SIZE - 1; i++) {
             printf("%c",IRrecieveBuffer[i]);
-            if(IRrecieveBuffer[i] == '\n') {
+            if(IRrecieveBuffer[i] == '\0') {
+                printf("\r\nChecksum: %d\r\n",IRrecieveBuffer[i+1]);
                 break;
             }
         }
-        printf("Checksum: %d",IRrecieveBuffer[i+1]);
         receiveNewMessage = false;
     } else {
         printf("There is no new message!\r\n");
@@ -262,28 +262,28 @@ void transmitByteData(char letter) {
 
 
 void transmitTxBuffer() {
-    uint8_t lastCall = false;
-    printf("Message: ");
+    printf("Sending Message: ");
     uint8_t checkSum = 0;
-    for(int i = 0; i < MAX_BUFFER_SIZE - 1; i++) {
+    uint8_t final = false;
+    for(uint8_t i = 0; i < MAX_BUFFER_SIZE - 1; i++) {
         transmitByteData(IRtransmitBuffer[i]);
-        if(lastCall == true) {
+        if(final == true) {
             checkSum = IRtransmitBuffer[i];
             break;
         }
-        if(IRtransmitBuffer[i] == '\r') {
-            lastCall = true;
+        if(IRtransmitBuffer[i] == '\0') {
+            final = true;
         }
         printf("%c", IRtransmitBuffer[i]);
     }
-    printf("Checksum: %d",checkSum);   
+    printf("\r\nChecksum: %d\r\n",checkSum);
 }
 
 void myEUSART2ISR(void) {
     static enum EUSARTStates rxState = IDLE;
-    static uint8_t rxBufIDX = 0;
     if(rxState == IDLE) {
-        IRrecieveBuffer[0] = RCREG2;
+        rxBufIDX = 0;
+        IRrecieveBuffer[rxBufIDX] = RCREG2;
         rxState = RXING_MSG;
         receiveBusy = true;
         rxBufIDX++;
@@ -306,13 +306,14 @@ void createWriteBuffer() {
     uint8_t checkSum = 0;
     char cmd = 0;
     // setup before starting to read in case 'm'
-    uint8_t i = 0;
     printf("Please enter your message\r\n>");
 	while (EUSART1_IsRxReady()); // waiting for 'm' to clear
-	for (i = 0; i < MAX_BUFFER_SIZE - 1; i++) {
+	for (uint8_t i = 0; i < MAX_BUFFER_SIZE - 1; i++) {
 		while (!EUSART1_IsRxReady()); // waiting until character is received
 		cmd = EUSART1_Read();
         if(cmd == '\r') {
+            IRtransmitBuffer[i] = '\0';
+            IRtransmitBuffer[i+1] = checkSum;
             break;
         } else {
             IRtransmitBuffer[i] = cmd;
@@ -323,6 +324,4 @@ void createWriteBuffer() {
 		// append cmd to buffer, add to checksum, print cmd
     }
     printf("\n\rThank you message has been stored\r\n");
-    IRtransmitBuffer[i+1] = '\0';
-    IRtransmitBuffer[i+2] = checkSum;
 }
