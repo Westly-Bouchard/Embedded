@@ -49,9 +49,9 @@ void TMR0_Initialize(void)
 {
     //Enable 16bit timer mode before assigning value to TMR0H
     T0CONbits.T08BIT = 0;
-    TMR0H = 0xFE;         // Period 25us; Frequency 16000000Hz; Count 65136
-    TMR0L = 0x70;
-    tmr0PeriodCount = 65136U;
+    TMR0H = 0xFE;         // Period 22.5us; Frequency 16000000Hz; Count 65176
+    TMR0L = 0x98;
+    tmr0PeriodCount = 65176U;
     TMR0_OverflowCallbackRegister(TMR0_DefaultOverflowCallback);
     
     INTCONbits.TMR0IF = 0;	   

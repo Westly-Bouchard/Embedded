@@ -218,6 +218,7 @@
         <property key="remove-unused-sections" value="true"/>
       </HI-TECH-LINK>
       <Tool>
+        <property key="debugoptions.useswbreakpoints" value="true"/>
         <property key="memories.programmemory.ranges" value="0-7fff"/>
         <property key="programmerToGoFilePath"
                   value="/home/burnerjobs/MPLAB/Embedded/Lab08.X/debug/default/Lab08_ptg"/>

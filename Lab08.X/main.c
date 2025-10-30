@@ -115,19 +115,17 @@ void main(void) {
                     uint16_t zerosIndex[120];
                     uint16_t numberOfCrossings = 0;
                             
-                    uint16_t trailingValue = fatBuffer[0];
                     
                     printf("The last %d ADC samples from the microphone are:\r\n", NUM_SAMPLES);
-                    for (uint16_t j = 0; j < NUM_SAMPLES; j++) { // print-out samples
+                    for (uint16_t j = 1; j < NUM_SAMPLES; j++) { // print-out samples
                         if(j % 16 == 0) {
                             printf("\r\nS[%d] ",j);
                         }
                         printf("%d ", fatBuffer[j]);
-                        if( ( (trailingValue < 128) && (fatBuffer[j] >= 128)  ) )  {
+                        if( ( (fatBuffer[j-1] < 128) && (fatBuffer[j] >= 128)  ) )  {
                             zerosIndex[numberOfCrossings] = j;
                             numberOfCrossings++;
                         }
-                        trailingValue = fatBuffer[j];
                     }
                     
                     uint16_t runSum = 0;
