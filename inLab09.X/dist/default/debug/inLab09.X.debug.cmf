@@ -1,0 +1,1390 @@
+%CMF
+# %PSECTS Section
+# For each object file, details of its psects are enumerated here.
+# The begining of the section is indicated by %PSECTS.  The first
+# line indicates the name of the first object file, e.g.
+#    $foo.obj
+# Each line that follows describes a psect in that object file, until
+# the next object file.  The lines that describe a psect have the
+# format:
+#    <psect name> <class name> <space> <link address> <load addresses> <length> <delta> <reloc>
+# All addresses and the length are given in unqualified hexadecimal
+# in delta units.  Any other numeric values are decimal.
+%PSECTS
+$/tmp/xct32o7WO/driver_tmp_14.o
+init CODE 0 4C 4C 4 1 2
+reset_vec CODE 0 0 0 4 1 2
+config CONFIG 4 300000 300000 E 1 1
+$dist/default/debug/inLab09.X.debug.o
+cinit CODE 0 1580 1580 3A 1 2
+text0 CODE 0 50 50 61C 1 2
+text1 CODE 0 8C6 8C6 1EA 1 2
+text2 CODE 0 184C 184C A 1 2
+text3 CODE 0 17E8 17E8 1A 1 2
+text4 CODE 0 1750 1750 24 1 2
+text5 CODE 0 1856 1856 A 1 2
+text6 CODE 0 1830 1830 E 1 2
+text7 CODE 0 16FA 16FA 30 1 2
+text8 CODE 0 1660 1660 34 1 2
+text9 CODE 0 1860 1860 A 1 2
+text10 CODE 0 186A 186A A 1 2
+text11 CODE 0 1874 1874 A 1 2
+text12 CODE 0 15BA 15BA 38 1 2
+text13 CODE 0 17B0 17B0 1C 1 2
+text14 CODE 0 17CC 17CC 1C 1 2
+text15 CODE 0 183E 183E E 1 2
+text16 CODE 0 13EA 13EA 88 1 2
+text17 CODE 0 1896 1896 4 1 2
+text18 CODE 0 135C 135C 8E 1 2
+text19 CODE 0 122C 122C 9A 1 2
+text20 CODE 0 15F2 15F2 38 1 2
+text21 CODE 0 AB0 AB0 16C 1 2
+text22 CODE 0 1774 1774 1E 1 2
+text23 CODE 0 14FA 14FA 46 1 2
+text24 CODE 0 66C 66C 25A 1 2
+text25 CODE 0 D84 D84 FA 1 2
+text26 CODE 0 1180 1180 AC 1 2
+text27 CODE 0 C1C C1C 168 1 2
+text28 CODE 0 12C6 12C6 96 1 2
+text29 CODE 0 1540 1540 40 1 2
+text30 CODE 0 1694 1694 34 1 2
+text31 CODE 0 10D2 10D2 AE 1 2
+text32 CODE 0 1010 1010 C2 1 2
+text33 CODE 0 F48 F48 C8 1 2
+text34 CODE 0 E7E E7E CA 1 2
+text35 CODE 0 1792 1792 1E 1 2
+text36 CODE 0 1888 1888 8 1 2
+text37 CODE 0 172A 172A 26 1 2
+text38 CODE 0 1802 1802 1A 1 2
+text39 CODE 0 1472 1472 88 1 2
+text40 CODE 0 1890 1890 6 1 2
+text41 CODE 0 189A 189A 2 1 2
+text42 CODE 0 181C 181C 14 1 2
+text44 CODE 0 16C8 16C8 32 1 2
+text45 CODE 0 189C 189C 2 1 2
+text46 CODE 0 162A 162A 36 1 2
+text47 CODE 0 187E 187E A 1 2
+nvBANK0 BANK0 1 97 97 2 1 1
+cstackCOMRAM COMRAM 1 1 1 4D 1 1
+cstackBANK0 BANK0 1 88 88 F 1 1
+temp COMRAM 1 59 59 1 1 1
+bssBANK0 BANK0 1 60 60 28 1 1
+intcode CODE 0 8 8 44 1 2
+bssBIGRAM BIGRAM 1 99 99 200 1 1
+bssCOMRAM COMRAM 1 4E 4E B 1 1
+mediumconst MEDIUMCONST 0 7A9E 7A9E 562 1 2
+config CONFIG 4 300000 300000 E 1 1
+# %UNUSED Section
+# This section enumerates the unused ranges of each CLASS. Each entry
+# is described on a single line as follows:
+#    <class name> <range> <delta>
+# Addresses given in the range are in hexadecimal and units of delta.
+%UNUSED
+RAM 299-5FF 1
+SFR F38-FFF 1
+BANK2 299-2FF 1
+BANK3 300-3FF 1
+BANK4 400-4FF 1
+BANK5 500-5FF 1
+CONST 4-7 1
+CONST 189E-7A9D 1
+IDLOC 200000-200007 1
+SMALLCONST 189E-7A9D 1
+CODE 4-7 1
+CODE 189E-7A9D 1
+BIGRAM 5A-5F 1
+BIGRAM 299-5FF 1
+BIGSFR F38-FFF 1
+COMRAM 5A-5F 1
+EEDATA F00000-F000FF 1
+MEDIUMCONST 189E-7A9D 1
+# %LINETAB Section
+# This section enumerates the file/line to address mappings.
+# The beginning of the section is indicated by %LINETAB.
+# The first line indicates the name of the first object file, e.g.
+#   $foo.obj
+# Each line that follows describes a single mapping until the next
+# object file.  Mappings have the following format:
+#    <address> <psect name> <class name> ><line number>:<file name>
+# The address is absolute and given given in unqualified hex 
+# in delta units of the psect. All mappings within an object file
+# are in ascending order of addresses.
+# All other numeric values are in decimal.
+%LINETAB
+$dist/default/debug/inLab09.X.debug.o
+8 intcode CODE >14605:/tmp/xct32o7WO/driver_tmp_1.s
+8 intcode CODE >80:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/system/src/interrupt.c
+12 intcode CODE >83:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/system/src/interrupt.c
+20 intcode CODE >85:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/system/src/interrupt.c
+3C intcode CODE >87:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/system/src/interrupt.c
+40 intcode CODE >90:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/system/src/interrupt.c
+187E text47 CODE >102:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/timer/src/tmr0.c
+187E text47 CODE >104:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/timer/src/tmr0.c
+1882 text47 CODE >105:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/timer/src/tmr0.c
+1886 text47 CODE >106:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/timer/src/tmr0.c
+162A text46 CODE >248:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+162A text46 CODE >251:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+162C text46 CODE >253:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+164E text46 CODE >254:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+165A text46 CODE >257:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+165C text46 CODE >258:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+165E text46 CODE >260:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+189C text45 CODE >159:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/timer/src/tmr0.c
+189C text45 CODE >162:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/timer/src/tmr0.c
+16C8 text44 CODE >139:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/timer/src/tmr0.c
+16C8 text44 CODE >147:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/timer/src/tmr0.c
+16DC text44 CODE >149:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/timer/src/tmr0.c
+16F6 text44 CODE >151:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/timer/src/tmr0.c
+16F8 text44 CODE >152:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/timer/src/tmr0.c
+181C text42 CODE >198:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/uart/src/eusart1.c
+181C text42 CODE >200:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/uart/src/eusart1.c
+182E text42 CODE >201:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/uart/src/eusart1.c
+189A text41 CODE >263:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/uart/src/eusart1.c
+189A text41 CODE >266:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/uart/src/eusart1.c
+1890 text40 CODE >268:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/uart/src/eusart1.c
+1890 text40 CODE >271:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/uart/src/eusart1.c
+1892 text40 CODE >272:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/uart/src/eusart1.c
+1894 text40 CODE >273:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/uart/src/eusart1.c
+1472 text39 CODE >218:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/uart/src/eusart1.c
+1472 text39 CODE >220:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/uart/src/eusart1.c
+147C text39 CODE >221:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/uart/src/eusart1.c
+148A text39 CODE >223:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/uart/src/eusart1.c
+148C text39 CODE >224:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/uart/src/eusart1.c
+149E text39 CODE >226:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/uart/src/eusart1.c
+14B8 text39 CODE >229:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/uart/src/eusart1.c
+14C6 text39 CODE >231:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/uart/src/eusart1.c
+14CA text39 CODE >232:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/uart/src/eusart1.c
+14DC text39 CODE >234:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/uart/src/eusart1.c
+14F6 text39 CODE >237:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/uart/src/eusart1.c
+14F8 text39 CODE >238:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/uart/src/eusart1.c
+1802 text38 CODE >161:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/spi/src/mssp2.c
+1804 text38 CODE >163:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/spi/src/mssp2.c
+1808 text38 CODE >164:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/spi/src/mssp2.c
+1808 text38 CODE >167:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/spi/src/mssp2.c
+1816 text38 CODE >168:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/spi/src/mssp2.c
+1818 text38 CODE >169:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/spi/src/mssp2.c
+181A text38 CODE >170:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/spi/src/mssp2.c
+172A text37 CODE >203:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/uart/src/eusart1.c
+172A text37 CODE >205:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/uart/src/eusart1.c
+174E text37 CODE >206:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/uart/src/eusart1.c
+1888 text36 CODE >240:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/uart/src/eusart1.c
+188A text36 CODE >242:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/uart/src/eusart1.c
+188E text36 CODE >243:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/uart/src/eusart1.c
+1792 text35 CODE >254:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/uart/src/eusart1.c
+1794 text35 CODE >256:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/uart/src/eusart1.c
+17A8 text35 CODE >260:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/uart/src/eusart1.c
+17AE text35 CODE >261:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/uart/src/eusart1.c
+E7E text34 CODE >8:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/nf_fputc.c
+E7E text34 CODE >12:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/nf_fputc.c
+EA2 text34 CODE >13:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/nf_fputc.c
+EA8 text34 CODE >14:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/nf_fputc.c
+EAC text34 CODE >15:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/nf_fputc.c
+F00 text34 CODE >18:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/nf_fputc.c
+F34 text34 CODE >20:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/nf_fputc.c
+F46 text34 CODE >24:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/nf_fputc.c
+F48 text33 CODE >476:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+F48 text33 CODE >481:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+F72 text33 CODE >485:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+F80 text33 CODE >486:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+F92 text33 CODE >491:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+FAC text33 CODE >492:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+FB4 text33 CODE >493:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+FB8 text33 CODE >494:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+FCC text33 CODE >495:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+FD0 text33 CODE >493:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+FEE text33 CODE >499:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+FFC text33 CODE >501:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+100E text33 CODE >509:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+1010 text32 CODE >7:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/awdiv.c
+1010 text32 CODE >13:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/awdiv.c
+1012 text32 CODE >14:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/awdiv.c
+1020 text32 CODE >15:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/awdiv.c
+1028 text32 CODE >16:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/awdiv.c
+102C text32 CODE >18:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/awdiv.c
+103A text32 CODE >19:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/awdiv.c
+1042 text32 CODE >20:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/awdiv.c
+1046 text32 CODE >22:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/awdiv.c
+104E text32 CODE >23:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/awdiv.c
+1060 text32 CODE >24:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/awdiv.c
+1064 text32 CODE >25:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/awdiv.c
+1068 text32 CODE >26:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/awdiv.c
+106E text32 CODE >27:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/awdiv.c
+1070 text32 CODE >25:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/awdiv.c
+107E text32 CODE >30:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/awdiv.c
+1084 text32 CODE >31:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/awdiv.c
+109A text32 CODE >32:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/awdiv.c
+10A2 text32 CODE >33:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/awdiv.c
+10A4 text32 CODE >35:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/awdiv.c
+10AA text32 CODE >36:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/awdiv.c
+10B0 text32 CODE >38:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/awdiv.c
+10C0 text32 CODE >39:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/awdiv.c
+10C8 text32 CODE >40:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/awdiv.c
+10D0 text32 CODE >41:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/awdiv.c
+10D2 text31 CODE >7:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/awmod.c
+10D2 text31 CODE >12:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/awmod.c
+10D4 text31 CODE >13:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/awmod.c
+10E2 text31 CODE >14:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/awmod.c
+10EA text31 CODE >15:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/awmod.c
+10EE text31 CODE >17:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/awmod.c
+10FC text31 CODE >18:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/awmod.c
+1104 text31 CODE >19:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/awmod.c
+1116 text31 CODE >20:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/awmod.c
+111A text31 CODE >21:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/awmod.c
+111E text31 CODE >22:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/awmod.c
+1124 text31 CODE >23:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/awmod.c
+1126 text31 CODE >21:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/awmod.c
+1134 text31 CODE >26:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/awmod.c
+114A text31 CODE >27:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/awmod.c
+1152 text31 CODE >28:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/awmod.c
+1158 text31 CODE >29:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/awmod.c
+115E text31 CODE >31:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/awmod.c
+116E text31 CODE >32:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/awmod.c
+1176 text31 CODE >33:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/awmod.c
+117E text31 CODE >34:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/awmod.c
+1694 text30 CODE >1:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/abs.c
+1694 text30 CODE >3:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/abs.c
+16C6 text30 CODE >4:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/abs.c
+1540 text29 CODE >8:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/nf_fputs.c
+1540 text29 CODE >13:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/nf_fputs.c
+1548 text29 CODE >14:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/nf_fputs.c
+154C text29 CODE >15:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/nf_fputs.c
+155E text29 CODE >16:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/nf_fputs.c
+1562 text29 CODE >14:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/nf_fputs.c
+157E text29 CODE >19:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/nf_fputs.c
+12C6 text28 CODE >193:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+12C6 text28 CODE >199:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+12D4 text28 CODE >200:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+12E4 text28 CODE >205:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+12F2 text28 CODE >206:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+12FA text28 CODE >207:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+12FA text28 CODE >208:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+1302 text28 CODE >209:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+1306 text28 CODE >210:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+131A text28 CODE >211:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+131E text28 CODE >209:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+133C text28 CODE >216:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+134A text28 CODE >218:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+135A text28 CODE >226:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+C1C text27 CODE >513:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+C1C text27 CODE >520:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+C20 text27 CODE >524:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+C34 text27 CODE >535:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+C3C text27 CODE >536:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+C4C text27 CODE >541:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+C52 text27 CODE >542:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+C7A text27 CODE >543:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+C7A text27 CODE >552:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+C82 text27 CODE >553:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+C86 text27 CODE >554:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+C8A text27 CODE >564:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+C90 text27 CODE >565:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+CBE text27 CODE >569:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+CC0 text27 CODE >571:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+CC6 text27 CODE >572:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+CE2 text27 CODE >554:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+D46 text27 CODE >576:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+D56 text27 CODE >577:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+D5C text27 CODE >578:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+D68 text27 CODE >582:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+D82 text27 CODE >583:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+1180 text26 CODE >1158:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+1180 text26 CODE >1159:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+1188 text26 CODE >1160:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+11AA text26 CODE >1161:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+11B6 text26 CODE >1162:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+11CE text26 CODE >1163:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+11D2 text26 CODE >1166:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+11F0 text26 CODE >1167:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+11FC text26 CODE >1165:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+1222 text26 CODE >1169:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+1222 text26 CODE >1170:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+122A text26 CODE >1171:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+D84 text25 CODE >1055:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+D84 text25 CODE >1067:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+D88 text25 CODE >1082:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+D90 text25 CODE >1095:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+D98 text25 CODE >1096:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+D9C text25 CODE >1097:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+DA0 text25 CODE >1107:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+DA6 text25 CODE >1108:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+DAC text25 CODE >1109:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+DBC text25 CODE >1110:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+DC0 text25 CODE >1111:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+DC4 text25 CODE >1116:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+DC8 text25 CODE >1121:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+DD4 text25 CODE >1125:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+DD6 text25 CODE >1127:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+DDC text25 CODE >1128:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+DFC text25 CODE >1097:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+E62 text25 CODE >1152:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+E7C text25 CODE >1153:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+66C text24 CODE >1177:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+66C text24 CODE >1201:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+68E text24 CODE >1202:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+69A text24 CODE >1204:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+6A6 text24 CODE >1205:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+6AC text24 CODE >1209:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+6AE text24 CODE >1210:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+6B2 text24 CODE >1220:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+6B4 text24 CODE >1221:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+6C0 text24 CODE >1222:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+6C4 text24 CODE >1243:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+6C8 text24 CODE >1244:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+6CC text24 CODE >1245:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+6E0 text24 CODE >1245:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+6EA text24 CODE >1210:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+6FA text24 CODE >1256:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+70E text24 CODE >1257:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+71C text24 CODE >1258:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+71E text24 CODE >1259:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+726 text24 CODE >1273:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+748 text24 CODE >1274:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+754 text24 CODE >1275:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+768 text24 CODE >1284:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+77C text24 CODE >1291:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+78A text24 CODE >1361:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+7C2 text24 CODE >1404:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+7DA text24 CODE >1406:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+7F4 text24 CODE >1432:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+80C text24 CODE >1439:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+828 text24 CODE >1495:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+840 text24 CODE >1497:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+85A text24 CODE >1498:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+85E text24 CODE >1586:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+876 text24 CODE >1589:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+884 text24 CODE >1589:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+88E text24 CODE >1806:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+89E text24 CODE >1811:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+8C4 text24 CODE >1814:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+14FA text23 CODE >1817:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+14FA text23 CODE >1822:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+1502 text23 CODE >1826:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+1506 text23 CODE >1830:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+151A text23 CODE >1826:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+1536 text23 CODE >1835:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+153E text23 CODE >1840:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/doprnt.c
+1774 text22 CODE >5:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/printf.c
+1774 text22 CODE >9:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/printf.c
+1778 text22 CODE >10:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/printf.c
+1790 text22 CODE >13:/Applications/microchip/xc8/v3.00/pic/sources/c99/common/printf.c
+AB0 text21 CODE >111:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+AB2 text21 CODE >118:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+ABA text21 CODE >119:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+AC0 text21 CODE >120:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+AE0 text21 CODE >124:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+AE2 text21 CODE >125:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+AE8 text21 CODE >126:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+AEE text21 CODE >127:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+AF4 text21 CODE >128:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+AFA text21 CODE >129:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+B00 text21 CODE >130:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+B06 text21 CODE >131:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+B0C text21 CODE >132:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+B12 text21 CODE >133:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+B1A text21 CODE >134:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+B1C text21 CODE >135:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+B3E text21 CODE >140:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+B40 text21 CODE >141:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+B46 text21 CODE >142:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+B4C text21 CODE >143:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+B52 text21 CODE >144:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+B58 text21 CODE >145:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+B5E text21 CODE >146:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+B64 text21 CODE >147:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+B6A text21 CODE >148:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+B70 text21 CODE >149:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+B78 text21 CODE >150:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+B7A text21 CODE >151:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+B8A text21 CODE >152:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+BAC text21 CODE >157:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+BAE text21 CODE >158:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+BB4 text21 CODE >159:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+BBA text21 CODE >160:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+BC0 text21 CODE >161:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+BC6 text21 CODE >162:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+BCC text21 CODE >163:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+BD2 text21 CODE >164:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+BD8 text21 CODE >165:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+BDE text21 CODE >166:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+BE6 text21 CODE >167:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+BE8 text21 CODE >168:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+BF8 text21 CODE >169:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+C1A text21 CODE >171:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+15F2 text20 CODE >86:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+15F2 text20 CODE >90:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+15F4 text20 CODE >91:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+15FC text20 CODE >92:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+15FE text20 CODE >94:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+160E text20 CODE >95:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+1614 text20 CODE >98:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+161A text20 CODE >99:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+1620 text20 CODE >100:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+1626 text20 CODE >101:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+1628 text20 CODE >104:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+122C text19 CODE >13:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+122C text19 CODE >15:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+122C text19 CODE >17:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+122E text19 CODE >18:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+1234 text19 CODE >19:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+123A text19 CODE >20:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+1240 text19 CODE >21:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+1246 text19 CODE >22:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+124C text19 CODE >23:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+1252 text19 CODE >24:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+1258 text19 CODE >27:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+126E text19 CODE >30:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+1284 text19 CODE >33:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+128C text19 CODE >34:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+12B6 text19 CODE >37:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+12BC text19 CODE >38:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+12C2 text19 CODE >40:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+12C4 text19 CODE >42:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+135C text18 CODE >48:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+135C text18 CODE >50:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+135C text18 CODE >52:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+135E text18 CODE >54:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+1364 text18 CODE >55:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+136A text18 CODE >56:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+1370 text18 CODE >57:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+1376 text18 CODE >58:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+137C text18 CODE >59:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+1382 text18 CODE >60:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+1388 text18 CODE >63:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+139E text18 CODE >66:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+13A4 text18 CODE >67:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+13AA text18 CODE >68:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+13B0 text18 CODE >71:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+13B6 text18 CODE >74:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+13BE text18 CODE >75:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+13E6 text18 CODE >77:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+13E8 text18 CODE >79:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+1896 text17 CODE >103:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/spi/src/mssp2.c
+1896 text17 CODE >105:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/spi/src/mssp2.c
+1898 text17 CODE >106:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/spi/src/mssp2.c
+13EA text16 CODE >82:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/spi/src/mssp2.c
+13EC text16 CODE >84:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/spi/src/mssp2.c
+13EC text16 CODE >85:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/spi/src/mssp2.c
+13FA text16 CODE >87:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/spi/src/mssp2.c
+1410 text16 CODE >88:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/spi/src/mssp2.c
+142E text16 CODE >89:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/spi/src/mssp2.c
+144C text16 CODE >90:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/spi/src/mssp2.c
+146A text16 CODE >92:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/spi/src/mssp2.c
+146C text16 CODE >94:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/spi/src/mssp2.c
+146C text16 CODE >95:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/spi/src/mssp2.c
+1470 text16 CODE >96:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/spi/src/mssp2.c
+1470 text16 CODE >101:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/spi/src/mssp2.c
+183E text15 CODE >39:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/system/src/clock.c
+183E text15 CODE >41:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/system/src/clock.c
+1842 text15 CODE >44:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/system/src/clock.c
+1846 text15 CODE >47:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/system/src/clock.c
+184A text15 CODE >50:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/system/src/clock.c
+17CC text14 CODE >275:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/uart/src/eusart1.c
+17CC text14 CODE >277:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/uart/src/eusart1.c
+17DE text14 CODE >279:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/uart/src/eusart1.c
+17E6 text14 CODE >281:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/uart/src/eusart1.c
+17B0 text13 CODE >283:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/uart/src/eusart1.c
+17B0 text13 CODE >285:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/uart/src/eusart1.c
+17C2 text13 CODE >287:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/uart/src/eusart1.c
+17CA text13 CODE >289:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/uart/src/eusart1.c
+15BA text12 CODE >99:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/uart/src/eusart1.c
+15BA text12 CODE >104:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/uart/src/eusart1.c
+15BE text12 CODE >106:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/uart/src/eusart1.c
+15C2 text12 CODE >108:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/uart/src/eusart1.c
+15C6 text12 CODE >110:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/uart/src/eusart1.c
+15CA text12 CODE >112:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/uart/src/eusart1.c
+15CE text12 CODE >114:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/uart/src/eusart1.c
+15DA text12 CODE >115:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/uart/src/eusart1.c
+15E6 text12 CODE >116:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/uart/src/eusart1.c
+15F0 text12 CODE >118:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/uart/src/eusart1.c
+1874 text11 CODE >110:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/system/src/interrupt.c
+1874 text11 CODE >111:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/system/src/interrupt.c
+187C text11 CODE >112:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/system/src/interrupt.c
+186A text10 CODE >136:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/system/src/interrupt.c
+186A text10 CODE >137:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/system/src/interrupt.c
+1872 text10 CODE >138:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/system/src/interrupt.c
+1860 text9 CODE >162:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/system/src/interrupt.c
+1860 text9 CODE >163:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/system/src/interrupt.c
+1868 text9 CODE >164:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/system/src/interrupt.c
+1660 text8 CODE >42:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/system/src/interrupt.c
+1660 text8 CODE >45:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/system/src/interrupt.c
+1662 text8 CODE >49:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/system/src/interrupt.c
+1664 text8 CODE >50:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/system/src/interrupt.c
+1666 text8 CODE >52:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/system/src/interrupt.c
+1672 text8 CODE >57:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/system/src/interrupt.c
+1674 text8 CODE >58:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/system/src/interrupt.c
+1676 text8 CODE >60:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/system/src/interrupt.c
+1682 text8 CODE >65:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/system/src/interrupt.c
+1684 text8 CODE >66:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/system/src/interrupt.c
+1686 text8 CODE >68:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/system/src/interrupt.c
+1692 text8 CODE >71:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/system/src/interrupt.c
+16FA text7 CODE >38:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/system/src/pins.c
+16FA text7 CODE >43:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/system/src/pins.c
+16FC text7 CODE >44:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/system/src/pins.c
+16FE text7 CODE >45:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/system/src/pins.c
+1702 text7 CODE >53:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/system/src/pins.c
+1706 text7 CODE >54:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/system/src/pins.c
+170A text7 CODE >55:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/system/src/pins.c
+170E text7 CODE >56:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/system/src/pins.c
+1712 text7 CODE >61:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/system/src/pins.c
+1718 text7 CODE >62:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/system/src/pins.c
+171C text7 CODE >63:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/system/src/pins.c
+1720 text7 CODE >68:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/system/src/pins.c
+1722 text7 CODE >89:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/system/src/pins.c
+1726 text7 CODE >93:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/system/src/pins.c
+1728 text7 CODE >94:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/system/src/pins.c
+1830 text6 CODE >61:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/spi/src/mssp2.c
+1830 text6 CODE >64:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/spi/src/mssp2.c
+1832 text6 CODE >65:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/spi/src/mssp2.c
+1834 text6 CODE >67:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/spi/src/mssp2.c
+1836 text6 CODE >68:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/spi/src/mssp2.c
+1838 text6 CODE >69:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/spi/src/mssp2.c
+183A text6 CODE >70:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/spi/src/mssp2.c
+183C text6 CODE >71:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/spi/src/mssp2.c
+1856 text5 CODE >154:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/timer/src/tmr0.c
+1856 text5 CODE >156:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/timer/src/tmr0.c
+185E text5 CODE >157:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/timer/src/tmr0.c
+1750 text4 CODE >48:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/timer/src/tmr0.c
+1750 text4 CODE >51:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/timer/src/tmr0.c
+1752 text4 CODE >52:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/timer/src/tmr0.c
+1754 text4 CODE >53:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/timer/src/tmr0.c
+1756 text4 CODE >54:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/timer/src/tmr0.c
+175E text4 CODE >55:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/timer/src/tmr0.c
+176A text4 CODE >57:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/timer/src/tmr0.c
+176C text4 CODE >58:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/timer/src/tmr0.c
+176E text4 CODE >60:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/timer/src/tmr0.c
+1772 text4 CODE >66:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/timer/src/tmr0.c
+17E8 text3 CODE >39:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/system/src/system.c
+17E8 text3 CODE >41:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/system/src/system.c
+17EC text3 CODE >42:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/system/src/system.c
+17F0 text3 CODE >43:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/system/src/system.c
+17F4 text3 CODE >44:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/system/src/system.c
+17F8 text3 CODE >45:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/system/src/system.c
+17FC text3 CODE >46:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/system/src/system.c
+1800 text3 CODE >47:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/system/src/system.c
+184C text2 CODE >102:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/timer/src/tmr0.c
+184C text2 CODE >104:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/timer/src/tmr0.c
+1850 text2 CODE >105:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/timer/src/tmr0.c
+1854 text2 CODE >106:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/mcc_generated_files/timer/src/tmr0.c
+8C6 text1 CODE >179:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+8C6 text1 CODE >183:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+8D2 text1 CODE >185:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+8DC text1 CODE >186:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+918 text1 CODE >187:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+94A text1 CODE >188:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+956 text1 CODE >189:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+968 text1 CODE >190:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+984 text1 CODE >191:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+990 text1 CODE >192:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+994 text1 CODE >193:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+9B6 text1 CODE >195:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+9D2 text1 CODE >196:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+9DE text1 CODE >197:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+9DE text1 CODE >199:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+A02 text1 CODE >200:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+A1A text1 CODE >202:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+A26 text1 CODE >203:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+A38 text1 CODE >204:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+A54 text1 CODE >205:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+A60 text1 CODE >206:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+A64 text1 CODE >207:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+A86 text1 CODE >209:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+AA2 text1 CODE >210:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+AAE text1 CODE >211:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/sdCard.c
+50 text0 CODE >41:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+50 text0 CODE >45:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+62 text0 CODE >48:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+66 text0 CODE >50:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+6A text0 CODE >51:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+6C text0 CODE >54:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+78 text0 CODE >55:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+7A text0 CODE >56:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+88 text0 CODE >58:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+94 text0 CODE >60:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+96 text0 CODE >61:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+98 text0 CODE >63:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+A4 text0 CODE >64:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+B0 text0 CODE >65:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+BC text0 CODE >67:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+C0 text0 CODE >68:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+C6 text0 CODE >72:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+DA text0 CODE >73:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+E2 text0 CODE >74:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+E6 text0 CODE >80:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+F2 text0 CODE >81:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+FE text0 CODE >82:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+116 text0 CODE >83:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+122 text0 CODE >84:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+148 text0 CODE >85:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+154 text0 CODE >86:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+160 text0 CODE >87:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+16C text0 CODE >88:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+178 text0 CODE >89:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+184 text0 CODE >90:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+190 text0 CODE >91:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+19C text0 CODE >92:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+1A8 text0 CODE >93:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+1B4 text0 CODE >94:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+1C0 text0 CODE >95:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+1CC text0 CODE >96:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+1E0 text0 CODE >97:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+1F4 text0 CODE >98:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+200 text0 CODE >99:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+20C text0 CODE >100:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+218 text0 CODE >101:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+21C text0 CODE >107:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+228 text0 CODE >108:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+22C text0 CODE >114:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+25C text0 CODE >115:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+25E text0 CODE >116:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+262 text0 CODE >122:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+296 text0 CODE >129:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+2A2 text0 CODE >130:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+2AE text0 CODE >131:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+2BA text0 CODE >132:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+2C6 text0 CODE >133:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+2D2 text0 CODE >134:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+2E6 text0 CODE >135:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+2FA text0 CODE >136:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+2FE text0 CODE >138:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+320 text0 CODE >139:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+324 text0 CODE >140:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+328 text0 CODE >147:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+32C text0 CODE >148:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+332 text0 CODE >149:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+338 text0 CODE >150:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+33C text0 CODE >157:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+34E text0 CODE >158:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+35E text0 CODE >159:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+370 text0 CODE >160:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+37C text0 CODE >161:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+38E text0 CODE >162:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+392 text0 CODE >163:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+3A2 text0 CODE >166:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+3B2 text0 CODE >167:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+3C4 text0 CODE >168:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+3D0 text0 CODE >169:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+3E2 text0 CODE >170:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+3E6 text0 CODE >171:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+3F2 text0 CODE >173:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+3F2 text0 CODE >176:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+3FE text0 CODE >177:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+416 text0 CODE >178:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+422 text0 CODE >179:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+448 text0 CODE >180:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+454 text0 CODE >181:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+458 text0 CODE >187:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+464 text0 CODE >188:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+496 text0 CODE >190:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+498 text0 CODE >191:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+4B4 text0 CODE >192:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+4CC text0 CODE >193:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+4CE text0 CODE >195:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+4DA text0 CODE >196:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+4E6 text0 CODE >197:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+4FE text0 CODE >198:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+50A text0 CODE >199:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+530 text0 CODE >200:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+53C text0 CODE >201:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+54E text0 CODE >202:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+552 text0 CODE >208:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+55E text0 CODE >209:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+560 text0 CODE >210:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+57C text0 CODE >211:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+57E text0 CODE >212:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+58A text0 CODE >213:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+596 text0 CODE >214:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+5AE text0 CODE >215:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+5BA text0 CODE >216:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+5E0 text0 CODE >217:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+5EC text0 CODE >218:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+5F8 text0 CODE >219:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+5FC text0 CODE >225:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+60E text0 CODE >226:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+612 text0 CODE >227:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+616 text0 CODE >227:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+61E text0 CODE >227:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+626 text0 CODE >227:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+62E text0 CODE >227:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+636 text0 CODE >227:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+63E text0 CODE >227:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+646 text0 CODE >227:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+64E text0 CODE >227:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+656 text0 CODE >227:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+65E text0 CODE >227:/Users/westlybouchard/Documents/Embedded/labs/inLab09.X/main.c
+1580 cinit CODE >6343:/tmp/xct32o7WO/driver_tmp_1.s
+1580 cinit CODE >6345:/tmp/xct32o7WO/driver_tmp_1.s
+1580 cinit CODE >6348:/tmp/xct32o7WO/driver_tmp_1.s
+1580 cinit CODE >6391:/tmp/xct32o7WO/driver_tmp_1.s
+1584 cinit CODE >6392:/tmp/xct32o7WO/driver_tmp_1.s
+1588 cinit CODE >6393:/tmp/xct32o7WO/driver_tmp_1.s
+1588 cinit CODE >6394:/tmp/xct32o7WO/driver_tmp_1.s
+158A cinit CODE >6395:/tmp/xct32o7WO/driver_tmp_1.s
+158C cinit CODE >6396:/tmp/xct32o7WO/driver_tmp_1.s
+158E cinit CODE >6397:/tmp/xct32o7WO/driver_tmp_1.s
+1590 cinit CODE >6398:/tmp/xct32o7WO/driver_tmp_1.s
+1592 cinit CODE >6399:/tmp/xct32o7WO/driver_tmp_1.s
+1594 cinit CODE >6402:/tmp/xct32o7WO/driver_tmp_1.s
+1598 cinit CODE >6403:/tmp/xct32o7WO/driver_tmp_1.s
+159A cinit CODE >6404:/tmp/xct32o7WO/driver_tmp_1.s
+159A cinit CODE >6405:/tmp/xct32o7WO/driver_tmp_1.s
+159C cinit CODE >6406:/tmp/xct32o7WO/driver_tmp_1.s
+159E cinit CODE >6407:/tmp/xct32o7WO/driver_tmp_1.s
+15A0 cinit CODE >6410:/tmp/xct32o7WO/driver_tmp_1.s
+15A4 cinit CODE >6411:/tmp/xct32o7WO/driver_tmp_1.s
+15A6 cinit CODE >6412:/tmp/xct32o7WO/driver_tmp_1.s
+15A6 cinit CODE >6413:/tmp/xct32o7WO/driver_tmp_1.s
+15A8 cinit CODE >6414:/tmp/xct32o7WO/driver_tmp_1.s
+15AA cinit CODE >6415:/tmp/xct32o7WO/driver_tmp_1.s
+15AC cinit CODE >6421:/tmp/xct32o7WO/driver_tmp_1.s
+15AC cinit CODE >6423:/tmp/xct32o7WO/driver_tmp_1.s
+15AE cinit CODE >6424:/tmp/xct32o7WO/driver_tmp_1.s
+15B0 cinit CODE >6426:/tmp/xct32o7WO/driver_tmp_1.s
+15B2 cinit CODE >6427:/tmp/xct32o7WO/driver_tmp_1.s
+15B4 cinit CODE >6428:/tmp/xct32o7WO/driver_tmp_1.s
+15B6 cinit CODE >6429:/tmp/xct32o7WO/driver_tmp_1.s
+# %SYMTAB Section
+# An enumeration of all symbols in the program.
+# The beginning of the section is indicated by %SYMTAB.
+# Each line describes a single symbol as follows:
+#    <label> <value> [-]<load-adj> <class> <space> <psect> <file-name>
+# The value and load-adj are both in unqualified hexadecimal.
+# All other numeric values are in decimal.  The load-adj is the
+# quantity one needs to add to the symbol value in order to obtain the load
+# address of the symbol.  This value may be signed. If the symbol
+# was defined in a psect then <psect> will be "-". File-name
+# is the name of the object file in which the symbol was defined.
+%SYMTAB
+___awdiv@counter B 0 COMRAM 1 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+__Lmediumconst 7A9E 0 MEDIUMCONST 0 mediumconst dist/default/debug/inLab09.X.debug.o
+__Hspace_0 8000 0 ABS 0 - dist/default/debug/inLab09.X.debug.o
+__Hspace_1 299 0 ABS 0 - dist/default/debug/inLab09.X.debug.o
+__Hspace_2 0 0 ABS 0 - dist/default/debug/inLab09.X.debug.o
+__Hspace_4 60000E 0 ABS 0 - dist/default/debug/inLab09.X.debug.o
+EUSART1_FramingErrorCallbackRegister@callbackHandler 7 0 COMRAM 1 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+_EUSART1_IsTxDone 0 0 ABS 0 - dist/default/debug/inLab09.X.debug.o
+__Hibigdata 0 0 CODE 0 ibigdata dist/default/debug/inLab09.X.debug.o
+__mediumconst 7A9E 0 MEDIUMCONST 0 mediumconst dist/default/debug/inLab09.X.debug.o
+_INT0_DefaultInterruptHandler 0 0 ABS 0 - dist/default/debug/inLab09.X.debug.o
+_EUSART1_Initialize 15BA 0 CODE 0 text12 dist/default/debug/inLab09.X.debug.o
+__Heeprom_data 0 0 EEDATA 0 eeprom_data dist/default/debug/inLab09.X.debug.o
+__end_of_INTERRUPT_Initialize 1694 0 CODE 0 text8 dist/default/debug/inLab09.X.debug.o
+__L__absolute__ 0 0 ABS 0 __absolute__ dist/default/debug/inLab09.X.debug.o
+SDCARD_ReadBlock@i E 0 COMRAM 1 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+?_abs D 0 COMRAM 1 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+main@i 91 0 BANK0 1 cstackBANK0 dist/default/debug/inLab09.X.debug.o
+_EUSART1_Deinitialize 0 0 ABS 0 - dist/default/debug/inLab09.X.debug.o
+__end_of_SDCARD_WriteBlock 13EA 0 CODE 0 text18 dist/default/debug/inLab09.X.debug.o
+?_vfprintf 3B 0 COMRAM 1 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+__Lsmallconst 0 0 SMALLCONST 0 smallconst dist/default/debug/inLab09.X.debug.o
+__end_of_SDCARD_Initialize C1C 0 CODE 0 text21 dist/default/debug/inLab09.X.debug.o
+_IOCB F62 0 ABS 0 - dist/default/debug/inLab09.X.debug.o
+_LATA F89 0 ABS 0 - dist/default/debug/inLab09.X.debug.o
+_LATB F8A 0 ABS 0 - dist/default/debug/inLab09.X.debug.o
+_LATC F8B 0 ABS 0 - dist/default/debug/inLab09.X.debug.o
+_WPUB F61 0 ABS 0 - dist/default/debug/inLab09.X.debug.o
+___sp 0 0 STACK 2 stack /tmp/xct32o7WO/driver_tmp_14.o
+_ctoa F48 0 CODE 0 text33 dist/default/debug/inLab09.X.debug.o
+_dbuf 68 0 BANK0 1 bssBANK0 dist/default/debug/inLab09.X.debug.o
+_dtoa C1C 0 CODE 0 text27 dist/default/debug/inLab09.X.debug.o
+_main 50 0 CODE 0 text0 dist/default/debug/inLab09.X.debug.o
+_prec 60 0 BANK0 1 bssBANK0 dist/default/debug/inLab09.X.debug.o
+_xtoa D84 0 CODE 0 text25 dist/default/debug/inLab09.X.debug.o
+abs@a D 0 COMRAM 1 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+btemp 59 0 COMRAM 1 temp dist/default/debug/inLab09.X.debug.o
+___stack_hi 0 0 STACK 2 stack /tmp/xct32o7WO/driver_tmp_14.o
+___stack_lo 0 0 STACK 2 stack /tmp/xct32o7WO/driver_tmp_14.o
+read_prec_or_width@c B 0 COMRAM 1 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+read_prec_or_width@n C 0 COMRAM 1 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+pad@i 1E 0 COMRAM 1 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+pad@p 1B 0 COMRAM 1 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+__HbssBIGRAM 0 0 ABS 0 bssBIGRAM dist/default/debug/inLab09.X.debug.o
+start 4C 0 CODE 0 init /tmp/xct32o7WO/driver_tmp_14.o
+_sdCardBuffer 99 0 BIGRAM 1 bssBIGRAM dist/default/debug/inLab09.X.debug.o
+__HbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/debug/inLab09.X.debug.o
+INT2_SetInterruptHandler@InterruptHandler 7 0 COMRAM 1 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+myTMR0ISR@bigOleWasteOfTime 3 0 COMRAM 1 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+pad@fp 18 0 COMRAM 1 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+_TMR0_OverflowCallback 97 0 BANK0 1 nvBANK0 dist/default/debug/inLab09.X.debug.o
+_INT2_SetInterruptHandler 1860 0 CODE 0 text9 dist/default/debug/inLab09.X.debug.o
+__Hpowerup 0 0 CODE 0 powerup dist/default/debug/inLab09.X.debug.o
+__end_of_vfpfcnvrt 8C6 0 CODE 0 text24 dist/default/debug/inLab09.X.debug.o
+___awmod@sign C 0 COMRAM 1 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+_T0CONbits FD5 0 ABS 0 - dist/default/debug/inLab09.X.debug.o
+ttemp5 5A 0 COMRAM 1 temp dist/default/debug/inLab09.X.debug.o
+ttemp6 5D 0 COMRAM 1 temp dist/default/debug/inLab09.X.debug.o
+ttemp7 61 0 COMRAM 1 temp dist/default/debug/inLab09.X.debug.o
+__LbssBIGRAM 0 0 ABS 0 bssBIGRAM dist/default/debug/inLab09.X.debug.o
+__accesstop 60 0 ABS 0 - /tmp/xct32o7WO/driver_tmp_14.o
+intlevel0 0 0 CODE 0 text /tmp/xct32o7WO/driver_tmp_14.o
+intlevel1 0 0 CODE 0 text /tmp/xct32o7WO/driver_tmp_14.o
+intlevel2 0 0 CODE 0 text /tmp/xct32o7WO/driver_tmp_14.o
+intlevel3 0 0 CODE 0 text /tmp/xct32o7WO/driver_tmp_14.o
+__LbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/debug/inLab09.X.debug.o
+__LnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/debug/inLab09.X.debug.o
+wtemp8 5A 0 COMRAM 1 temp dist/default/debug/inLab09.X.debug.o
+__end_of_TMR0_OverflowISR 16FA 0 CODE 0 text44 dist/default/debug/inLab09.X.debug.o
+xtoa@c 2A 0 COMRAM 1 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+xtoa@d 22 0 COMRAM 1 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+xtoa@i 2B 0 COMRAM 1 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+xtoa@p 27 0 COMRAM 1 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+xtoa@w 28 0 COMRAM 1 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+__Hifardata 0 0 CODE 0 ifardata dist/default/debug/inLab09.X.debug.o
+EUSART1_Write@txData 7 0 COMRAM 1 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+___awdiv@sign C 0 COMRAM 1 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+__Hclrtext 0 0 ABS 0 clrtext dist/default/debug/inLab09.X.debug.o
+_vfpfcnvrt 66C 0 CODE 0 text24 dist/default/debug/inLab09.X.debug.o
+dtoa@fp 20 0 COMRAM 1 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+_SDCARD_ReadBlock 122C 0 CODE 0 text19 dist/default/debug/inLab09.X.debug.o
+__end_of_INT1_SetInterruptHandler 1874 0 CODE 0 text10 dist/default/debug/inLab09.X.debug.o
+__end_of_SDCARD_PollWriteComplete 162A 0 CODE 0 text20 dist/default/debug/inLab09.X.debug.o
+xtoa@fp 20 0 COMRAM 1 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+_ANSELA F38 0 ABS 0 - dist/default/debug/inLab09.X.debug.o
+_ANSELB F39 0 ABS 0 - dist/default/debug/inLab09.X.debug.o
+_ANSELC F3A 0 ABS 0 - dist/default/debug/inLab09.X.debug.o
+hexDumpBuffer@i 8C 0 BANK0 1 cstackBANK0 dist/default/debug/inLab09.X.debug.o
+hexDumpBuffer@j 88 0 BANK0 1 cstackBANK0 dist/default/debug/inLab09.X.debug.o
+___awdiv@dividend 7 0 COMRAM 1 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+___inthi_sp 0 0 STACK 2 stack /tmp/xct32o7WO/driver_tmp_14.o
+___intlo_sp 0 0 STACK 2 stack /tmp/xct32o7WO/driver_tmp_14.o
+__end_of_INTERRUPT_InterruptManager 4C 0 CODE 0 intcode dist/default/debug/inLab09.X.debug.o
+_TMR0_DefaultOverflowCallback 189C 0 CODE 0 text45 dist/default/debug/inLab09.X.debug.o
+__Hintcode_body 0 0 ABS 0 intcode_body dist/default/debug/inLab09.X.debug.o
+main@sdCardAddress 93 0 BANK0 1 cstackBANK0 dist/default/debug/inLab09.X.debug.o
+__Lintsave_regs 0 0 BIGRAM 1 intsave_regs dist/default/debug/inLab09.X.debug.o
+main@cmd 90 0 BANK0 1 cstackBANK0 dist/default/debug/inLab09.X.debug.o
+_SPI2_ByteWrite 0 0 ABS 0 - dist/default/debug/inLab09.X.debug.o
+_SDCARD_WriteBlock 135C 0 CODE 0 text18 dist/default/debug/inLab09.X.debug.o
+_TXSTA1bits FAC 0 ABS 0 - dist/default/debug/inLab09.X.debug.o
+_SDCARD_Initialize AB0 0 CODE 0 text21 dist/default/debug/inLab09.X.debug.o
+__Hmediumconst 8000 0 MEDIUMCONST 0 mediumconst dist/default/debug/inLab09.X.debug.o
+?_printf 42 0 COMRAM 1 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+__end_ofi2_TMR0_CounterSet 1888 0 CODE 0 text47 dist/default/debug/inLab09.X.debug.o
+__LnvBANK0 0 0 ABS 0 nvBANK0 dist/default/debug/inLab09.X.debug.o
+__Hintcodelo 18 0 CODE 0 intcodelo dist/default/debug/inLab09.X.debug.o
+EUSART1_OverrunErrorCallbackRegister@callbackHandler 7 0 COMRAM 1 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+___awdiv@divisor 9 0 COMRAM 1 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+__end_of___awdiv 10D2 0 CODE 0 text32 dist/default/debug/inLab09.X.debug.o
+__end_of___awmod 1180 0 CODE 0 text31 dist/default/debug/inLab09.X.debug.o
+__end_of_SPI2_Initialize 183E 0 CODE 0 text6 dist/default/debug/inLab09.X.debug.o
+_EUSART1_TransmitEnable 0 0 ABS 0 - dist/default/debug/inLab09.X.debug.o
+_EUSART1_ErrorGet 0 0 ABS 0 - dist/default/debug/inLab09.X.debug.o
+_INTCON2bits FF1 0 ABS 0 - dist/default/debug/inLab09.X.debug.o
+_INTCON3bits FF0 0 ABS 0 - dist/default/debug/inLab09.X.debug.o
+__Lintcodelo 18 0 CODE 0 intcodelo dist/default/debug/inLab09.X.debug.o
+_PIN_MANAGER_Initialize 16FA 0 CODE 0 text7 dist/default/debug/inLab09.X.debug.o
+_SSP2CON1bits F6C 0 ABS 0 - dist/default/debug/inLab09.X.debug.o
+start_initialization 1580 0 CODE 0 cinit dist/default/debug/inLab09.X.debug.o
+_eusart1RxLastError 66 0 BANK0 1 bssBANK0 dist/default/debug/inLab09.X.debug.o
+_OSCCON FD3 0 ABS 0 - dist/default/debug/inLab09.X.debug.o
+_hexDumpBuffer 8C6 0 CODE 0 text1 dist/default/debug/inLab09.X.debug.o
+__HnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/debug/inLab09.X.debug.o
+SDCARD_WriteBlock@i E 0 COMRAM 1 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+___rparam_used 1 0 ABS 0 - dist/default/debug/inLab09.X.debug.o
+__end_of_EUSART1_OverrunErrorCallbackRegister 17CC 0 CODE 0 text13 dist/default/debug/inLab09.X.debug.o
+_RCREG1 FAE 0 ABS 0 - dist/default/debug/inLab09.X.debug.o
+_RCSTA1 FAB 0 ABS 0 - dist/default/debug/inLab09.X.debug.o
+__end_of_TMR0_CounterSet 1856 0 CODE 0 text2 dist/default/debug/inLab09.X.debug.o
+__end_of_SDCARD_ReadBlock 12C6 0 CODE 0 text19 dist/default/debug/inLab09.X.debug.o
+_SPI2_BufferExchange 0 0 ABS 0 - dist/default/debug/inLab09.X.debug.o
+__end_of_SYSTEM_Initialize 1802 0 CODE 0 text3 dist/default/debug/inLab09.X.debug.o
+_SPBRG1 FAF 0 ABS 0 - dist/default/debug/inLab09.X.debug.o
+__pcstackBANK0 88 0 BANK0 1 cstackBANK0 dist/default/debug/inLab09.X.debug.o
+_tmr0PeriodCount 50 0 COMRAM 1 bssCOMRAM dist/default/debug/inLab09.X.debug.o
+_TXREG1 FAD 0 ABS 0 - dist/default/debug/inLab09.X.debug.o
+_TXSTA1 FAC 0 ABS 0 - dist/default/debug/inLab09.X.debug.o
+_INT2_DefaultInterruptHandler 0 0 ABS 0 - dist/default/debug/inLab09.X.debug.o
+__end_of_printf 1792 0 CODE 0 text22 dist/default/debug/inLab09.X.debug.o
+_SPI2_Initialize 1830 0 CODE 0 text6 dist/default/debug/inLab09.X.debug.o
+i2TMR0_CounterSet@counterValue 1 0 COMRAM 1 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+isa$xinst 0 0 ABS 0 - /tmp/xct32o7WO/driver_tmp_14.o
+hexDumpBuffer@sdCardBuffer 49 0 COMRAM 1 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+__end_of_EUSART1_IsTxReady 1750 0 CODE 0 text37 dist/default/debug/inLab09.X.debug.o
+fputc@fp B 0 COMRAM 1 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+fputs@fp 13 0 COMRAM 1 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+SPI2_ByteExchange@byteData 7 0 COMRAM 1 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+_EUSART1_Write 1888 0 CODE 0 text36 dist/default/debug/inLab09.X.debug.o
+vfpfcnvrt@done 34 0 COMRAM 1 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+__Hbank0 0 0 ABS 0 bank0 dist/default/debug/inLab09.X.debug.o
+__Hbank1 0 0 ABS 0 bank1 dist/default/debug/inLab09.X.debug.o
+__Hbank2 0 0 ABS 0 bank2 dist/default/debug/inLab09.X.debug.o
+__Hbank3 0 0 ABS 0 bank3 dist/default/debug/inLab09.X.debug.o
+__Hbank4 0 0 ABS 0 bank4 dist/default/debug/inLab09.X.debug.o
+__Hbank5 0 0 ABS 0 bank5 dist/default/debug/inLab09.X.debug.o
+__Hcinit 0 0 ABS 0 cinit dist/default/debug/inLab09.X.debug.o
+__Hconst 0 0 CONST 0 const dist/default/debug/inLab09.X.debug.o
+__Hidata 0 0 CODE 0 idata dist/default/debug/inLab09.X.debug.o
+__Hidloc 0 0 ABS 0 idloc dist/default/debug/inLab09.X.debug.o
+__Hnvbit 0 0 COMRAM 1 nvbit dist/default/debug/inLab09.X.debug.o
+__Hparam 0 0 COMRAM 1 rparam dist/default/debug/inLab09.X.debug.o
+__Hrdata 0 0 COMRAM 1 rdata dist/default/debug/inLab09.X.debug.o
+__Hstack 0 0 STACK 2 stack dist/default/debug/inLab09.X.debug.o
+_SPI2_Close 1896 0 CODE 0 text17 dist/default/debug/inLab09.X.debug.o
+__Htext0 0 0 ABS 0 text0 dist/default/debug/inLab09.X.debug.o
+__Htext1 0 0 ABS 0 text1 dist/default/debug/inLab09.X.debug.o
+__Htext2 0 0 ABS 0 text2 dist/default/debug/inLab09.X.debug.o
+__Htext3 0 0 ABS 0 text3 dist/default/debug/inLab09.X.debug.o
+__Htext4 0 0 ABS 0 text4 dist/default/debug/inLab09.X.debug.o
+__Htext5 0 0 ABS 0 text5 dist/default/debug/inLab09.X.debug.o
+__Htext6 0 0 ABS 0 text6 dist/default/debug/inLab09.X.debug.o
+__Htext7 0 0 ABS 0 text7 dist/default/debug/inLab09.X.debug.o
+__Htext8 0 0 ABS 0 text8 dist/default/debug/inLab09.X.debug.o
+__Htext9 0 0 ABS 0 text9 dist/default/debug/inLab09.X.debug.o
+?_read_prec_or_width 7 0 COMRAM 1 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+__Hbigbss 0 0 BIGRAM 1 bigbss dist/default/debug/inLab09.X.debug.o
+__Hbigram 0 0 ABS 0 bigram dist/default/debug/inLab09.X.debug.o
+__Hbigsfr 0 0 ABS 0 bigsfr dist/default/debug/inLab09.X.debug.o
+__smallconst 7A9E 0 MEDIUMCONST 0 mediumconst dist/default/debug/inLab09.X.debug.o
+_BAUDCON1 FB8 0 ABS 0 - dist/default/debug/inLab09.X.debug.o
+i2_TMR0_CounterSet 187E 0 CODE 0 text47 dist/default/debug/inLab09.X.debug.o
+__Hcomram 0 0 ABS 0 comram dist/default/debug/inLab09.X.debug.o
+__Hconfig 30000E 0 CONFIG 4 config dist/default/debug/inLab09.X.debug.o
+_SPI2_IsTxReady 0 0 ABS 0 - dist/default/debug/inLab09.X.debug.o
+__Lbank0 0 0 ABS 0 bank0 dist/default/debug/inLab09.X.debug.o
+__Lbank1 0 0 ABS 0 bank1 dist/default/debug/inLab09.X.debug.o
+__Lbank2 0 0 ABS 0 bank2 dist/default/debug/inLab09.X.debug.o
+__Lbank3 0 0 ABS 0 bank3 dist/default/debug/inLab09.X.debug.o
+__Lbank4 0 0 ABS 0 bank4 dist/default/debug/inLab09.X.debug.o
+__Lbank5 0 0 ABS 0 bank5 dist/default/debug/inLab09.X.debug.o
+__Lcinit 0 0 ABS 0 cinit dist/default/debug/inLab09.X.debug.o
+__Lconst 0 0 CONST 0 const dist/default/debug/inLab09.X.debug.o
+__Lidata 0 0 CODE 0 idata dist/default/debug/inLab09.X.debug.o
+__Lidloc 0 0 ABS 0 idloc dist/default/debug/inLab09.X.debug.o
+_SPI2_BufferRead 0 0 ABS 0 - dist/default/debug/inLab09.X.debug.o
+__Lnvbit 0 0 COMRAM 1 nvbit dist/default/debug/inLab09.X.debug.o
+INT1_SetInterruptHandler@InterruptHandler 7 0 COMRAM 1 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+__Lparam 0 0 COMRAM 1 rparam dist/default/debug/inLab09.X.debug.o
+__Lrdata 0 0 COMRAM 1 rdata dist/default/debug/inLab09.X.debug.o
+__Lstack 0 0 STACK 2 stack dist/default/debug/inLab09.X.debug.o
+__Ltext0 0 0 ABS 0 text0 dist/default/debug/inLab09.X.debug.o
+__Ltext1 0 0 ABS 0 text1 dist/default/debug/inLab09.X.debug.o
+__Ltext2 0 0 ABS 0 text2 dist/default/debug/inLab09.X.debug.o
+__Ltext3 0 0 ABS 0 text3 dist/default/debug/inLab09.X.debug.o
+__Ltext4 0 0 ABS 0 text4 dist/default/debug/inLab09.X.debug.o
+__Ltext5 0 0 ABS 0 text5 dist/default/debug/inLab09.X.debug.o
+__Ltext6 0 0 ABS 0 text6 dist/default/debug/inLab09.X.debug.o
+__Ltext7 0 0 ABS 0 text7 dist/default/debug/inLab09.X.debug.o
+__Ltext8 0 0 ABS 0 text8 dist/default/debug/inLab09.X.debug.o
+__Ltext9 0 0 ABS 0 text9 dist/default/debug/inLab09.X.debug.o
+_INT0_SetInterruptHandler 1874 0 CODE 0 text11 dist/default/debug/inLab09.X.debug.o
+_EUSART1_FramingErrorHandler 64 0 BANK0 1 bssBANK0 dist/default/debug/inLab09.X.debug.o
+_EUSART1_OverrunErrorHandler 62 0 BANK0 1 bssBANK0 dist/default/debug/inLab09.X.debug.o
+__Hfarbss 0 0 FARRAM 0 farbss dist/default/debug/inLab09.X.debug.o
+__Lintcode_body 0 0 ABS 0 intcode_body dist/default/debug/inLab09.X.debug.o
+_INTCONbits FF2 0 ABS 0 - dist/default/debug/inLab09.X.debug.o
+_TMR0_CounterSet 184C 0 CODE 0 text2 dist/default/debug/inLab09.X.debug.o
+_INTERRUPT_Initialize 1660 0 CODE 0 text8 dist/default/debug/inLab09.X.debug.o
+__Habs1 0 0 ABS 0 abs1 dist/default/debug/inLab09.X.debug.o
+__Hdata 0 0 ABS 0 data dist/default/debug/inLab09.X.debug.o
+__Hheap 0 0 HEAP 7 heap dist/default/debug/inLab09.X.debug.o
+__Hinit 50 0 CODE 0 init dist/default/debug/inLab09.X.debug.o
+__Hrbit 0 0 COMRAM 1 rbit dist/default/debug/inLab09.X.debug.o
+__Hrbss 0 0 COMRAM 1 rbss dist/default/debug/inLab09.X.debug.o
+__Htemp 5A 0 COMRAM 1 temp dist/default/debug/inLab09.X.debug.o
+__Htext 0 0 ABS 0 text dist/default/debug/inLab09.X.debug.o
+__end_of_EUSART1_FramingErrorCallbackRegister 17E8 0 CODE 0 text14 dist/default/debug/inLab09.X.debug.o
+__Labs1 0 0 ABS 0 abs1 dist/default/debug/inLab09.X.debug.o
+__Ldata 0 0 ABS 0 data dist/default/debug/inLab09.X.debug.o
+__Lheap 0 0 HEAP 7 heap dist/default/debug/inLab09.X.debug.o
+__Linit 4C 0 CODE 0 init dist/default/debug/inLab09.X.debug.o
+__Lrbit 0 0 COMRAM 1 rbit dist/default/debug/inLab09.X.debug.o
+__Lrbss 0 0 COMRAM 1 rbss dist/default/debug/inLab09.X.debug.o
+__Ltemp 59 0 COMRAM 1 temp dist/default/debug/inLab09.X.debug.o
+__Ltext 0 0 ABS 0 text dist/default/debug/inLab09.X.debug.o
+__pnvBANK0 97 0 BANK0 1 nvBANK0 dist/default/debug/inLab09.X.debug.o
+_SSP2CON1 F6C 0 ABS 0 - dist/default/debug/inLab09.X.debug.o
+_SSP2CON3 F69 0 ABS 0 - dist/default/debug/inLab09.X.debug.o
+_SSP2STAT F6D 0 ABS 0 - dist/default/debug/inLab09.X.debug.o
+__LcstackBANK0 0 0 ABS 0 cstackBANK0 dist/default/debug/inLab09.X.debug.o
+int$flags 59 0 COMRAM 1 temp dist/default/debug/inLab09.X.debug.o
+__HcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+__Hintret 0 0 ABS 0 intret dist/default/debug/inLab09.X.debug.o
+__Hirdata 0 0 CODE 0 irdata dist/default/debug/inLab09.X.debug.o
+__S0 8000 0 ABS 0 - dist/default/debug/inLab09.X.debug.o
+__S1 299 0 ABS 0 - dist/default/debug/inLab09.X.debug.o
+__S4 0 0 ABS 0 - dist/default/debug/inLab09.X.debug.o
+__S5 0 0 ABS 0 - dist/default/debug/inLab09.X.debug.o
+_abs 1694 0 CODE 0 text30 dist/default/debug/inLab09.X.debug.o
+_pad 12C6 0 CODE 0 text28 dist/default/debug/inLab09.X.debug.o
+_CLOCK_Initialize 183E 0 CODE 0 text15 dist/default/debug/inLab09.X.debug.o
+_SPI2_ByteRead 0 0 ABS 0 - dist/default/debug/inLab09.X.debug.o
+__end_of_INT2_SetInterruptHandler 186A 0 CODE 0 text9 dist/default/debug/inLab09.X.debug.o
+__end_of_EUSART1_DefaultFramingErrorCallback 189C 0 CODE 0 text41 dist/default/debug/inLab09.X.debug.o
+__end_of_TMR0_DefaultOverflowCallback 189E 0 CODE 0 text45 dist/default/debug/inLab09.X.debug.o
+__Lbigdata 0 0 BIGRAM 1 bigdata dist/default/debug/inLab09.X.debug.o
+__Hnvrram 0 0 COMRAM 1 nvrram dist/default/debug/inLab09.X.debug.o
+_SYSTEM_Initialize 17E8 0 CODE 0 text3 dist/default/debug/inLab09.X.debug.o
+_dtoa$2243 24 0 COMRAM 1 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+__end_of_abs 16C8 0 CODE 0 text30 dist/default/debug/inLab09.X.debug.o
+__end_of_pad 135C 0 CODE 0 text28 dist/default/debug/inLab09.X.debug.o
+__end_of_SPI2_Close 189A 0 CODE 0 text17 dist/default/debug/inLab09.X.debug.o
+__HnvBANK0 0 0 ABS 0 nvBANK0 dist/default/debug/inLab09.X.debug.o
+__end_of_EUSART1_DefaultOverrunErrorCallback 1896 0 CODE 0 text40 dist/default/debug/inLab09.X.debug.o
+__Lintentry 0 0 ABS 0 intentry dist/default/debug/inLab09.X.debug.o
+__Hramtop 600 0 RAM 0 ramtop dist/default/debug/inLab09.X.debug.o
+__Hrparam 0 0 COMRAM 1 rparam dist/default/debug/inLab09.X.debug.o
+_EUSART1_IsTxReady 172A 0 CODE 0 text37 dist/default/debug/inLab09.X.debug.o
+__activetblptr 2 0 ABS 0 - dist/default/debug/inLab09.X.debug.o
+__Hstruct 0 0 COMRAM 1 struct dist/default/debug/inLab09.X.debug.o
+__LbssBANK0 0 0 ABS 0 bssBANK0 dist/default/debug/inLab09.X.debug.o
+__Htext10 0 0 ABS 0 text10 dist/default/debug/inLab09.X.debug.o
+__Htext11 0 0 ABS 0 text11 dist/default/debug/inLab09.X.debug.o
+__Htext12 0 0 ABS 0 text12 dist/default/debug/inLab09.X.debug.o
+__Htext13 0 0 ABS 0 text13 dist/default/debug/inLab09.X.debug.o
+__Htext14 0 0 ABS 0 text14 dist/default/debug/inLab09.X.debug.o
+__Htext15 0 0 ABS 0 text15 dist/default/debug/inLab09.X.debug.o
+__Htext16 0 0 ABS 0 text16 dist/default/debug/inLab09.X.debug.o
+__Htext17 0 0 ABS 0 text17 dist/default/debug/inLab09.X.debug.o
+__Htext18 0 0 ABS 0 text18 dist/default/debug/inLab09.X.debug.o
+__Htext19 0 0 ABS 0 text19 dist/default/debug/inLab09.X.debug.o
+__Htext20 0 0 ABS 0 text20 dist/default/debug/inLab09.X.debug.o
+__Htext21 0 0 ABS 0 text21 dist/default/debug/inLab09.X.debug.o
+__Htext22 0 0 ABS 0 text22 dist/default/debug/inLab09.X.debug.o
+__Htext23 0 0 ABS 0 text23 dist/default/debug/inLab09.X.debug.o
+__Htext24 0 0 ABS 0 text24 dist/default/debug/inLab09.X.debug.o
+__Htext25 0 0 ABS 0 text25 dist/default/debug/inLab09.X.debug.o
+__Htext26 0 0 ABS 0 text26 dist/default/debug/inLab09.X.debug.o
+__Htext27 0 0 ABS 0 text27 dist/default/debug/inLab09.X.debug.o
+__Htext28 0 0 ABS 0 text28 dist/default/debug/inLab09.X.debug.o
+__Htext29 0 0 ABS 0 text29 dist/default/debug/inLab09.X.debug.o
+__Htext30 0 0 ABS 0 text30 dist/default/debug/inLab09.X.debug.o
+__Htext31 0 0 ABS 0 text31 dist/default/debug/inLab09.X.debug.o
+__Htext32 0 0 ABS 0 text32 dist/default/debug/inLab09.X.debug.o
+__Htext33 0 0 ABS 0 text33 dist/default/debug/inLab09.X.debug.o
+__Htext34 0 0 ABS 0 text34 dist/default/debug/inLab09.X.debug.o
+__Htext35 0 0 ABS 0 text35 dist/default/debug/inLab09.X.debug.o
+__Htext36 0 0 ABS 0 text36 dist/default/debug/inLab09.X.debug.o
+__Htext37 0 0 ABS 0 text37 dist/default/debug/inLab09.X.debug.o
+__Htext38 0 0 ABS 0 text38 dist/default/debug/inLab09.X.debug.o
+__Htext39 0 0 ABS 0 text39 dist/default/debug/inLab09.X.debug.o
+__Htext40 0 0 ABS 0 text40 dist/default/debug/inLab09.X.debug.o
+__Htext41 0 0 ABS 0 text41 dist/default/debug/inLab09.X.debug.o
+__Htext42 0 0 ABS 0 text42 dist/default/debug/inLab09.X.debug.o
+__Htext44 0 0 ABS 0 text44 dist/default/debug/inLab09.X.debug.o
+__Htext45 0 0 ABS 0 text45 dist/default/debug/inLab09.X.debug.o
+__Htext46 0 0 ABS 0 text46 dist/default/debug/inLab09.X.debug.o
+__Htext47 0 0 ABS 0 text47 dist/default/debug/inLab09.X.debug.o
+vfpfcnvrt@fmt 2F 0 COMRAM 1 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+_INTERRUPT_InterruptManager 8 0 CODE 0 intcode dist/default/debug/inLab09.X.debug.o
+___awmod@counter B 0 COMRAM 1 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+SDCARD_Initialize@i 49 0 COMRAM 1 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+_PIE3bits FA3 0 ABS 0 - dist/default/debug/inLab09.X.debug.o
+__end_of_hexDumpBuffer AB0 0 CODE 0 text1 dist/default/debug/inLab09.X.debug.o
+pad@buf 1A 0 COMRAM 1 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+__ptext10 186A 0 CODE 0 text10 dist/default/debug/inLab09.X.debug.o
+__ptext11 1874 0 CODE 0 text11 dist/default/debug/inLab09.X.debug.o
+__ptext12 15BA 0 CODE 0 text12 dist/default/debug/inLab09.X.debug.o
+__ptext13 17B0 0 CODE 0 text13 dist/default/debug/inLab09.X.debug.o
+__ptext14 17CC 0 CODE 0 text14 dist/default/debug/inLab09.X.debug.o
+__ptext15 183E 0 CODE 0 text15 dist/default/debug/inLab09.X.debug.o
+__ptext16 13EA 0 CODE 0 text16 dist/default/debug/inLab09.X.debug.o
+__ptext17 1896 0 CODE 0 text17 dist/default/debug/inLab09.X.debug.o
+__ptext18 135C 0 CODE 0 text18 dist/default/debug/inLab09.X.debug.o
+__ptext19 122C 0 CODE 0 text19 dist/default/debug/inLab09.X.debug.o
+__ptext20 15F2 0 CODE 0 text20 dist/default/debug/inLab09.X.debug.o
+__ptext21 AB0 0 CODE 0 text21 dist/default/debug/inLab09.X.debug.o
+__ptext22 1774 0 CODE 0 text22 dist/default/debug/inLab09.X.debug.o
+__ptext23 14FA 0 CODE 0 text23 dist/default/debug/inLab09.X.debug.o
+__ptext24 66C 0 CODE 0 text24 dist/default/debug/inLab09.X.debug.o
+__ptext25 D84 0 CODE 0 text25 dist/default/debug/inLab09.X.debug.o
+__ptext26 1180 0 CODE 0 text26 dist/default/debug/inLab09.X.debug.o
+__ptext27 C1C 0 CODE 0 text27 dist/default/debug/inLab09.X.debug.o
+__ptext28 12C6 0 CODE 0 text28 dist/default/debug/inLab09.X.debug.o
+__ptext29 1540 0 CODE 0 text29 dist/default/debug/inLab09.X.debug.o
+__ptext30 1694 0 CODE 0 text30 dist/default/debug/inLab09.X.debug.o
+__ptext31 10D2 0 CODE 0 text31 dist/default/debug/inLab09.X.debug.o
+__ptext32 1010 0 CODE 0 text32 dist/default/debug/inLab09.X.debug.o
+__ptext33 F48 0 CODE 0 text33 dist/default/debug/inLab09.X.debug.o
+__ptext34 E7E 0 CODE 0 text34 dist/default/debug/inLab09.X.debug.o
+__ptext35 1792 0 CODE 0 text35 dist/default/debug/inLab09.X.debug.o
+__ptext36 1888 0 CODE 0 text36 dist/default/debug/inLab09.X.debug.o
+__ptext37 172A 0 CODE 0 text37 dist/default/debug/inLab09.X.debug.o
+__ptext38 1802 0 CODE 0 text38 dist/default/debug/inLab09.X.debug.o
+__ptext39 1472 0 CODE 0 text39 dist/default/debug/inLab09.X.debug.o
+__ptext40 1890 0 CODE 0 text40 dist/default/debug/inLab09.X.debug.o
+__ptext41 189A 0 CODE 0 text41 dist/default/debug/inLab09.X.debug.o
+__ptext42 181C 0 CODE 0 text42 dist/default/debug/inLab09.X.debug.o
+__ptext44 16C8 0 CODE 0 text44 dist/default/debug/inLab09.X.debug.o
+__ptext45 189C 0 CODE 0 text45 dist/default/debug/inLab09.X.debug.o
+__ptext46 162A 0 CODE 0 text46 dist/default/debug/inLab09.X.debug.o
+__ptext47 187E 0 CODE 0 text47 dist/default/debug/inLab09.X.debug.o
+__end_of_PIN_MANAGER_Initialize 172A 0 CODE 0 text7 dist/default/debug/inLab09.X.debug.o
+___awdiv 1010 0 CODE 0 text32 dist/default/debug/inLab09.X.debug.o
+___awmod 10D2 0 CODE 0 text31 dist/default/debug/inLab09.X.debug.o
+__end_of_TMR0_Initialize 1774 0 CODE 0 text4 dist/default/debug/inLab09.X.debug.o
+_TMR0_OverflowCallbackRegister 1856 0 CODE 0 text5 dist/default/debug/inLab09.X.debug.o
+__Lbigbss 0 0 BIGRAM 1 bigbss dist/default/debug/inLab09.X.debug.o
+__Lbigram 0 0 ABS 0 bigram dist/default/debug/inLab09.X.debug.o
+__Lbigsfr 0 0 ABS 0 bigsfr dist/default/debug/inLab09.X.debug.o
+_INT2_InterruptHandler 52 0 COMRAM 1 bssCOMRAM dist/default/debug/inLab09.X.debug.o
+_EUSART1_AutoBaudSet 0 0 ABS 0 - dist/default/debug/inLab09.X.debug.o
+__Lcomram 0 0 ABS 0 comram dist/default/debug/inLab09.X.debug.o
+__Lconfig 0 0 CONFIG 4 config dist/default/debug/inLab09.X.debug.o
+_printf 1774 0 CODE 0 text22 dist/default/debug/inLab09.X.debug.o
+_LATAbits F89 0 ABS 0 - dist/default/debug/inLab09.X.debug.o
+_LATBbits F8A 0 ABS 0 - dist/default/debug/inLab09.X.debug.o
+_LATCbits F8B 0 ABS 0 - dist/default/debug/inLab09.X.debug.o
+__Lsivt_hi 0 0 CODE 0 sivt_hi dist/default/debug/inLab09.X.debug.o
+__Lsivt_lo 18 0 CODE 0 sivt_lo dist/default/debug/inLab09.X.debug.o
+__end_of_read_prec_or_width 122C 0 CODE 0 text26 dist/default/debug/inLab09.X.debug.o
+_EUSART1_Read 1472 0 CODE 0 text39 dist/default/debug/inLab09.X.debug.o
+_RCSTA1bits FAB 0 ABS 0 - dist/default/debug/inLab09.X.debug.o
+__Lfarbss 0 0 FARRAM 0 farbss dist/default/debug/inLab09.X.debug.o
+___inthi_stack_hi 0 0 STACK 2 stack /tmp/xct32o7WO/driver_tmp_14.o
+___inthi_stack_lo 0 0 STACK 2 stack /tmp/xct32o7WO/driver_tmp_14.o
+__Lfardata 0 0 FARRAM 0 fardata dist/default/debug/inLab09.X.debug.o
+isa$std 1 0 ABS 0 - /tmp/xct32o7WO/driver_tmp_14.o
+__end_of_CLOCK_Initialize 184C 0 CODE 0 text15 dist/default/debug/inLab09.X.debug.o
+_EUSART1_TransmitDisable 0 0 ABS 0 - dist/default/debug/inLab09.X.debug.o
+stackhi 0 0 ABS 0 - /tmp/xct32o7WO/driver_tmp_14.o
+stacklo 0 0 ABS 0 - /tmp/xct32o7WO/driver_tmp_14.o
+__end_of_EUSART1_Write 1890 0 CODE 0 text36 dist/default/debug/inLab09.X.debug.o
+__end_of_SPI2_Host 7AEB 0 MEDIUMCONST 0 mediumconst dist/default/debug/inLab09.X.debug.o
+__end_of_SPI2_Open 1472 0 CODE 0 text16 dist/default/debug/inLab09.X.debug.o
+__Lintcode 8 0 CODE 0 intcode dist/default/debug/inLab09.X.debug.o
+_OSCCON2 FD2 0 ABS 0 - dist/default/debug/inLab09.X.debug.o
+_OSCTUNE F9B 0 ABS 0 - dist/default/debug/inLab09.X.debug.o
+__Lintret 0 0 ABS 0 intret dist/default/debug/inLab09.X.debug.o
+__end_of_SPI2_ByteExchange 181C 0 CODE 0 text38 dist/default/debug/inLab09.X.debug.o
+__Lirdata 0 0 CODE 0 irdata dist/default/debug/inLab09.X.debug.o
+_INT1_InterruptHandler 54 0 COMRAM 1 bssCOMRAM dist/default/debug/inLab09.X.debug.o
+__pbssBIGRAM 99 0 BIGRAM 1 bssBIGRAM dist/default/debug/inLab09.X.debug.o
+_INT1_DefaultInterruptHandler 0 0 ABS 0 - dist/default/debug/inLab09.X.debug.o
+__Lspace_0 0 0 ABS 0 - dist/default/debug/inLab09.X.debug.o
+__Lspace_1 0 0 ABS 0 - dist/default/debug/inLab09.X.debug.o
+__Lspace_2 0 0 ABS 0 - dist/default/debug/inLab09.X.debug.o
+__Lspace_4 0 0 ABS 0 - dist/default/debug/inLab09.X.debug.o
+__pbssCOMRAM 4E 0 COMRAM 1 bssCOMRAM dist/default/debug/inLab09.X.debug.o
+__HcstackBANK0 0 0 ABS 0 cstackBANK0 dist/default/debug/inLab09.X.debug.o
+_PIR1bits F9E 0 ABS 0 - dist/default/debug/inLab09.X.debug.o
+_PIR3bits FA4 0 ABS 0 - dist/default/debug/inLab09.X.debug.o
+_SPI2_BufferWrite 0 0 ABS 0 - dist/default/debug/inLab09.X.debug.o
+vfpfcnvrt@convarg 35 0 COMRAM 1 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+__LcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+printf@ap 48 0 COMRAM 1 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+SDCARD_Initialize@response 4C 0 COMRAM 1 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+end_of_initialization 15AC 0 CODE 0 cinit dist/default/debug/inLab09.X.debug.o
+_read_prec_or_width 1180 0 CODE 0 text26 dist/default/debug/inLab09.X.debug.o
+_TMR0_Initialize 1750 0 CODE 0 text4 dist/default/debug/inLab09.X.debug.o
+__Lnvrram 0 0 COMRAM 1 nvrram dist/default/debug/inLab09.X.debug.o
+__Hintentry 0 0 ABS 0 intentry dist/default/debug/inLab09.X.debug.o
+SDCARD_WriteBlock@sdCardBuffer C 0 COMRAM 1 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+_RCONbits FD0 0 ABS 0 - dist/default/debug/inLab09.X.debug.o
+fputc@c 9 0 COMRAM 1 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+fputs@c 15 0 COMRAM 1 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+fputs@i 16 0 COMRAM 1 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+fputs@s 12 0 COMRAM 1 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+_SPI2_Host 7ACF 0 MEDIUMCONST 0 mediumconst dist/default/debug/inLab09.X.debug.o
+_SPI2_Open 13EA 0 CODE 0 text16 dist/default/debug/inLab09.X.debug.o
+_EUSART1_OverrunErrorCallbackRegister 17B0 0 CODE 0 text13 dist/default/debug/inLab09.X.debug.o
+___awdiv@quotient D 0 COMRAM 1 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+?___awdiv 7 0 COMRAM 1 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+?___awmod 7 0 COMRAM 1 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+__end_of_spi2_configuration 7AFA 0 MEDIUMCONST 0 mediumconst dist/default/debug/inLab09.X.debug.o
+vfprintf@fmt 3D 0 COMRAM 1 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+__Hreset_vec 4 0 CODE 0 reset_vec dist/default/debug/inLab09.X.debug.o
+__HbssBANK0 0 0 ABS 0 bssBANK0 dist/default/debug/inLab09.X.debug.o
+SDCARD_PollWriteComplete@status 8 0 COMRAM 1 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+___awmod@dividend 7 0 COMRAM 1 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+_INT0_InterruptHandler 56 0 COMRAM 1 bssCOMRAM dist/default/debug/inLab09.X.debug.o
+SDCARD_WriteBlock@addr 8 0 COMRAM 1 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+_INT1_SetInterruptHandler 186A 0 CODE 0 text10 dist/default/debug/inLab09.X.debug.o
+__Lramtop 600 0 RAM 0 ramtop dist/default/debug/inLab09.X.debug.o
+_SDCARD_PollWriteComplete 15F2 0 CODE 0 text20 dist/default/debug/inLab09.X.debug.o
+__Lrparam 0 0 COMRAM 1 rparam dist/default/debug/inLab09.X.debug.o
+__pcinit 1580 0 CODE 0 cinit dist/default/debug/inLab09.X.debug.o
+vfpfcnvrt@ap 30 0 COMRAM 1 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+vfpfcnvrt@cp 39 0 COMRAM 1 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+vfpfcnvrt@fp 2D 0 COMRAM 1 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+__ptext0 50 0 CODE 0 text0 dist/default/debug/inLab09.X.debug.o
+__ptext1 8C6 0 CODE 0 text1 dist/default/debug/inLab09.X.debug.o
+__ptext2 184C 0 CODE 0 text2 dist/default/debug/inLab09.X.debug.o
+__ptext3 17E8 0 CODE 0 text3 dist/default/debug/inLab09.X.debug.o
+__ptext4 1750 0 CODE 0 text4 dist/default/debug/inLab09.X.debug.o
+__ptext5 1856 0 CODE 0 text5 dist/default/debug/inLab09.X.debug.o
+__ptext6 1830 0 CODE 0 text6 dist/default/debug/inLab09.X.debug.o
+__ptext7 16FA 0 CODE 0 text7 dist/default/debug/inLab09.X.debug.o
+__ptext8 1660 0 CODE 0 text8 dist/default/debug/inLab09.X.debug.o
+__ptext9 1860 0 CODE 0 text9 dist/default/debug/inLab09.X.debug.o
+__Lstruct 0 0 COMRAM 1 struct dist/default/debug/inLab09.X.debug.o
+vfprintf@ap 3F 0 COMRAM 1 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+vfprintf@fp 3B 0 COMRAM 1 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+vfprintf@cfmt 40 0 COMRAM 1 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+__Ltext10 0 0 ABS 0 text10 dist/default/debug/inLab09.X.debug.o
+__Ltext11 0 0 ABS 0 text11 dist/default/debug/inLab09.X.debug.o
+__Ltext12 0 0 ABS 0 text12 dist/default/debug/inLab09.X.debug.o
+__Ltext13 0 0 ABS 0 text13 dist/default/debug/inLab09.X.debug.o
+__Ltext14 0 0 ABS 0 text14 dist/default/debug/inLab09.X.debug.o
+__Ltext15 0 0 ABS 0 text15 dist/default/debug/inLab09.X.debug.o
+__Ltext16 0 0 ABS 0 text16 dist/default/debug/inLab09.X.debug.o
+__Ltext17 0 0 ABS 0 text17 dist/default/debug/inLab09.X.debug.o
+__Ltext18 0 0 ABS 0 text18 dist/default/debug/inLab09.X.debug.o
+__Ltext19 0 0 ABS 0 text19 dist/default/debug/inLab09.X.debug.o
+__Ltext20 0 0 ABS 0 text20 dist/default/debug/inLab09.X.debug.o
+__Ltext21 0 0 ABS 0 text21 dist/default/debug/inLab09.X.debug.o
+__Ltext22 0 0 ABS 0 text22 dist/default/debug/inLab09.X.debug.o
+__Ltext23 0 0 ABS 0 text23 dist/default/debug/inLab09.X.debug.o
+__Ltext24 0 0 ABS 0 text24 dist/default/debug/inLab09.X.debug.o
+__Ltext25 0 0 ABS 0 text25 dist/default/debug/inLab09.X.debug.o
+__Ltext26 0 0 ABS 0 text26 dist/default/debug/inLab09.X.debug.o
+__Ltext27 0 0 ABS 0 text27 dist/default/debug/inLab09.X.debug.o
+__Ltext28 0 0 ABS 0 text28 dist/default/debug/inLab09.X.debug.o
+__Ltext29 0 0 ABS 0 text29 dist/default/debug/inLab09.X.debug.o
+__Ltext30 0 0 ABS 0 text30 dist/default/debug/inLab09.X.debug.o
+__Ltext31 0 0 ABS 0 text31 dist/default/debug/inLab09.X.debug.o
+__Ltext32 0 0 ABS 0 text32 dist/default/debug/inLab09.X.debug.o
+__Ltext33 0 0 ABS 0 text33 dist/default/debug/inLab09.X.debug.o
+__Ltext34 0 0 ABS 0 text34 dist/default/debug/inLab09.X.debug.o
+__Ltext35 0 0 ABS 0 text35 dist/default/debug/inLab09.X.debug.o
+__Ltext36 0 0 ABS 0 text36 dist/default/debug/inLab09.X.debug.o
+__Ltext37 0 0 ABS 0 text37 dist/default/debug/inLab09.X.debug.o
+__Ltext38 0 0 ABS 0 text38 dist/default/debug/inLab09.X.debug.o
+__Ltext39 0 0 ABS 0 text39 dist/default/debug/inLab09.X.debug.o
+__Ltext40 0 0 ABS 0 text40 dist/default/debug/inLab09.X.debug.o
+__Ltext41 0 0 ABS 0 text41 dist/default/debug/inLab09.X.debug.o
+__Ltext42 0 0 ABS 0 text42 dist/default/debug/inLab09.X.debug.o
+__Ltext44 0 0 ABS 0 text44 dist/default/debug/inLab09.X.debug.o
+__Ltext45 0 0 ABS 0 text45 dist/default/debug/inLab09.X.debug.o
+__Ltext46 0 0 ABS 0 text46 dist/default/debug/inLab09.X.debug.o
+__Ltext47 0 0 ABS 0 text47 dist/default/debug/inLab09.X.debug.o
+main@letter 8F 0 BANK0 1 cstackBANK0 dist/default/debug/inLab09.X.debug.o
+__end_of_EUSART1_IsRxReady 1830 0 CODE 0 text42 dist/default/debug/inLab09.X.debug.o
+__ramtop 600 0 RAM 0 ramtop /tmp/xct32o7WO/driver_tmp_14.o
+_vfprintf 14FA 0 CODE 0 text23 dist/default/debug/inLab09.X.debug.o
+__Lpowerup 0 0 CODE 0 powerup dist/default/debug/inLab09.X.debug.o
+__Leeprom_data 0 0 EEDATA 0 eeprom_data dist/default/debug/inLab09.X.debug.o
+__H__absolute__ 0 0 ABS 0 __absolute__ dist/default/debug/inLab09.X.debug.o
+__end_of_EUSART1_Read 14FA 0 CODE 0 text39 dist/default/debug/inLab09.X.debug.o
+SDCARD_ReadBlock@addr 8 0 COMRAM 1 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+__Lreset_vec 0 0 CODE 0 reset_vec dist/default/debug/inLab09.X.debug.o
+INT0_SetInterruptHandler@InterruptHandler 7 0 COMRAM 1 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+__end_of_vfprintf 1540 0 CODE 0 text23 dist/default/debug/inLab09.X.debug.o
+___heap_hi 0 0 ABS 0 - /tmp/xct32o7WO/driver_tmp_14.o
+___heap_lo 0 0 ABS 0 - /tmp/xct32o7WO/driver_tmp_14.o
+_spi2_configuration 7AEB 0 MEDIUMCONST 0 mediumconst dist/default/debug/inLab09.X.debug.o
+_SPI2_Deinitialize 0 0 ABS 0 - dist/default/debug/inLab09.X.debug.o
+_SPI2_IsRxReady 0 0 ABS 0 - dist/default/debug/inLab09.X.debug.o
+SPI2_Open@spiConfigIndex 7 0 COMRAM 1 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+___param_bank 0 0 ABS 0 - dist/default/debug/inLab09.X.debug.o
+___intlo_stack_hi 0 0 STACK 2 stack /tmp/xct32o7WO/driver_tmp_14.o
+___intlo_stack_lo 0 0 STACK 2 stack /tmp/xct32o7WO/driver_tmp_14.o
+__Hbigdata 0 0 BIGRAM 1 bigdata dist/default/debug/inLab09.X.debug.o
+__end_of__initialization 15AC 0 CODE 0 cinit dist/default/debug/inLab09.X.debug.o
+___awmod@divisor 9 0 COMRAM 1 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+__Libigdata 0 0 CODE 0 ibigdata dist/default/debug/inLab09.X.debug.o
+main@status 8E 0 BANK0 1 cstackBANK0 dist/default/debug/inLab09.X.debug.o
+SDCARD_ReadBlock@sdCardBuffer C 0 COMRAM 1 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+_EUSART1_IsTxReady$1654 7 0 COMRAM 1 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+__Lclrtext 0 0 ABS 0 clrtext dist/default/debug/inLab09.X.debug.o
+__end_of_INT0_SetInterruptHandler 187E 0 CODE 0 text11 dist/default/debug/inLab09.X.debug.o
+_SPBRGH1 FB0 0 ABS 0 - dist/default/debug/inLab09.X.debug.o
+_EUSART1_FramingErrorCallbackRegister 17CC 0 CODE 0 text14 dist/default/debug/inLab09.X.debug.o
+ctoa@fp 12 0 COMRAM 1 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+_SPI2_ByteExchange 1802 0 CODE 0 text38 dist/default/debug/inLab09.X.debug.o
+__pcstackCOMRAM 1 0 COMRAM 1 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+__pmediumconst 7A9E 0 MEDIUMCONST 0 mediumconst dist/default/debug/inLab09.X.debug.o
+_SSP2ADD F6E 0 ABS 0 - dist/default/debug/inLab09.X.debug.o
+_SSP2BUF F6F 0 ABS 0 - dist/default/debug/inLab09.X.debug.o
+TMR0_CounterSet@counterValue 7 0 COMRAM 1 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+__end_of_myTMR0ISR 1660 0 CODE 0 text46 dist/default/debug/inLab09.X.debug.o
+vfpfcnvrt@c 33 0 COMRAM 1 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+putch@txData 8 0 COMRAM 1 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+__end_of_ctoa 1010 0 CODE 0 text33 dist/default/debug/inLab09.X.debug.o
+__end_of_dtoa D84 0 CODE 0 text27 dist/default/debug/inLab09.X.debug.o
+__end_of_main 66C 0 CODE 0 text0 dist/default/debug/inLab09.X.debug.o
+__end_of_xtoa E7E 0 CODE 0 text25 dist/default/debug/inLab09.X.debug.o
+__pintcode 8 0 CODE 0 intcode dist/default/debug/inLab09.X.debug.o
+__end_of_UART1 7ACF 0 MEDIUMCONST 0 mediumconst dist/default/debug/inLab09.X.debug.o
+printf@fmt 42 0 COMRAM 1 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+__end_of_fputc F48 0 CODE 0 text34 dist/default/debug/inLab09.X.debug.o
+__end_of_fputs 1580 0 CODE 0 text29 dist/default/debug/inLab09.X.debug.o
+_T0CON FD5 0 ABS 0 - dist/default/debug/inLab09.X.debug.o
+_TMR0H FD7 0 ABS 0 - dist/default/debug/inLab09.X.debug.o
+_TMR0L FD6 0 ABS 0 - dist/default/debug/inLab09.X.debug.o
+_TRISA F92 0 ABS 0 - dist/default/debug/inLab09.X.debug.o
+_TRISB F93 0 ABS 0 - dist/default/debug/inLab09.X.debug.o
+_TRISC F94 0 ABS 0 - dist/default/debug/inLab09.X.debug.o
+_TRISE F96 0 ABS 0 - dist/default/debug/inLab09.X.debug.o
+_UART1 7A9F 0 MEDIUMCONST 0 mediumconst dist/default/debug/inLab09.X.debug.o
+__end_of_putch 17B0 0 CODE 0 text35 dist/default/debug/inLab09.X.debug.o
+__HRAM 0 0 ABS 0 - dist/default/debug/inLab09.X.debug.o
+__Hbss 0 0 RAM 1 bss dist/default/debug/inLab09.X.debug.o
+__Hram 0 0 ABS 0 ram dist/default/debug/inLab09.X.debug.o
+__Hsfr 0 0 ABS 0 sfr dist/default/debug/inLab09.X.debug.o
+__LRAM 1 0 ABS 0 - dist/default/debug/inLab09.X.debug.o
+__Lbss 0 0 RAM 1 bss dist/default/debug/inLab09.X.debug.o
+__Lram 0 0 ABS 0 ram dist/default/debug/inLab09.X.debug.o
+__Lsfr 0 0 ABS 0 sfr dist/default/debug/inLab09.X.debug.o
+_flags 58 0 COMRAM 1 bssCOMRAM dist/default/debug/inLab09.X.debug.o
+_fputc E7E 0 CODE 0 text34 dist/default/debug/inLab09.X.debug.o
+_fputs 1540 0 CODE 0 text29 dist/default/debug/inLab09.X.debug.o
+_putch 1792 0 CODE 0 text35 dist/default/debug/inLab09.X.debug.o
+read_prec_or_width@fmt 7 0 COMRAM 1 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+_width 4E 0 COMRAM 1 bssCOMRAM dist/default/debug/inLab09.X.debug.o
+_EUSART1_AutoBaudQuery 0 0 ABS 0 - dist/default/debug/inLab09.X.debug.o
+__end_of_EUSART1_Initialize 15F2 0 CODE 0 text12 dist/default/debug/inLab09.X.debug.o
+_EUSART1_DefaultFramingErrorCallback 189A 0 CODE 0 text41 dist/default/debug/inLab09.X.debug.o
+SDCARD_Initialize@verbose 4B 0 COMRAM 1 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+__Hsivt_hi 0 0 CODE 0 sivt_hi dist/default/debug/inLab09.X.debug.o
+__Hsivt_lo 18 0 CODE 0 sivt_lo dist/default/debug/inLab09.X.debug.o
+__initialization 1580 0 CODE 0 cinit dist/default/debug/inLab09.X.debug.o
+_BAUDCON1bits FB8 0 ABS 0 - dist/default/debug/inLab09.X.debug.o
+_myTMR0ISR 162A 0 CODE 0 text46 dist/default/debug/inLab09.X.debug.o
+__pbssBANK0 60 0 BANK0 1 bssBANK0 dist/default/debug/inLab09.X.debug.o
+ctoa@c 14 0 COMRAM 1 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+ctoa@l 16 0 COMRAM 1 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+ctoa@w 18 0 COMRAM 1 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+__Hfardata 0 0 FARRAM 0 fardata dist/default/debug/inLab09.X.debug.o
+_EUSART1_IsRxReady 181C 0 CODE 0 text42 dist/default/debug/inLab09.X.debug.o
+__Hsmallconst 0 0 SMALLCONST 0 smallconst dist/default/debug/inLab09.X.debug.o
+_TMR0_OverflowISR 16C8 0 CODE 0 text44 dist/default/debug/inLab09.X.debug.o
+dtoa@d 22 0 COMRAM 1 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+dtoa@i 2A 0 COMRAM 1 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+dtoa@p 26 0 COMRAM 1 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+dtoa@s 29 0 COMRAM 1 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+dtoa@w 27 0 COMRAM 1 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+hexDumpBuffer@j_1728 8A 0 BANK0 1 cstackBANK0 dist/default/debug/inLab09.X.debug.o
+__end_of_TMR0_OverflowCallbackRegister 1860 0 CODE 0 text5 dist/default/debug/inLab09.X.debug.o
+TMR0_OverflowCallbackRegister@callbackHandler 7 0 COMRAM 1 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+__Lifardata 0 0 CODE 0 ifardata dist/default/debug/inLab09.X.debug.o
+__Hintsave_regs 0 0 BIGRAM 1 intsave_regs dist/default/debug/inLab09.X.debug.o
+_EUSART1_DefaultOverrunErrorCallback 1890 0 CODE 0 text40 dist/default/debug/inLab09.X.debug.o
+__Hintcode 4C 0 CODE 0 intcode dist/default/debug/inLab09.X.debug.o
+read_prec_or_width@ap 8 0 COMRAM 1 cstackCOMRAM dist/default/debug/inLab09.X.debug.o
+# %SPLITSTAB Section
+# This section enumerates all the psect splits performed by the assembler.
+# The beginning of the section is indicated by %SPLITSTAB.
+# Each line is a record a particular split, where the parent psect is on
+# the left and the child on the right.  Note that a child psect is always
+# split form the top of the parent psect. All splits from a given parent
+# are listed in the order in which they occurred.
+%SPLITSTAB
+# %DABS Section
+# This section contains a table of all usuage of the assember
+# directive DABS in the program. Each line has the following format:
+#   <name> <space> <address> <size>
+# If the DABS was originally labelled then that shall be <name>,
+# otherwise name will be "-".  The <space> number is in decimal.
+# <address> and <size> are in byte units as unqaulified hexadecimal
+%DABS
+# %SEGMENTS Section
+# This sections enumerates the segments of the program.  Each segment
+# is described on a single line as follows:
+#    <name> <space> <link address> <file address> <size> <delta>
+# Addresses and size are in unqualified hexadecimal.  The link address
+# and size are in units of delta. The file address is in units of bytes.
+# All other numeric quantities are in decimal.
+%SEGMENTS
+cstackCOMRAM 1 1 1 59 1
+reset_vec 0 0 0 4 1
+bssBANK0 1 60 60 39 1
+intcode 0 8 8 1896 1
+bssBIGRAM 1 99 99 200 1
+mediumconst 0 7A9E 7A9E 562 1
+# %NOTES Section
+# This section contains data of all the note-psects.  The beginning of the section
+# is indicated by %NOTES. The first line indicates the name and decimal
+# byte-length of the first note-psect, e.g.
+#   $codecov_info_hdr 16
+# Each line that follows contains the byte-data of the psect in hexadecimal as a
+# space-separated list. These lines are limited to 16 bytes of data.
+%NOTES
