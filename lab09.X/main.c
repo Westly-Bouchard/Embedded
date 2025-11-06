@@ -4,7 +4,14 @@
 #pragma warning disable 1498    // fputc.c:16:: warning: (1498) pointer (unknown)
 
 
+void initSDCard(){
+    SPI2_Close();
+    SPI2_Open(CLASSIC_FWPORT); // Reset the SPI channel for SD card communication
+    SDCARD_Initialize(true);
+}
+
 void myTMR0ISR(void);
+
 
 #define BLOCK_SIZE          512
 #define MAX_NUM_BLOCKS      128
@@ -13,16 +20,19 @@ void myTMR0ISR(void);
 
 // Large arrays need to be defined as global even though you may only need to 
 // use them in main.  This quirk will be important in the next two assignments.
-uint8_t sdCardBuffer[BLOCK_SIZE];
+
+    uint8_t blueBuffer[BLOCK_SIZE];
+    uint8_t redBuffer[BLOCK_SIZE];
+    
+    
 
 typedef enum { IDLE, R_FILL_B_WRITE, B_FILL_R_WRITE } state;
 
 state systemState = IDLE;
 
-int redIdx, blueIdx;
+uint16_t redIdx, blueIdx;
 
-uint8_t redBuffer[BLOCK_SIZE];
-uint8_t blueBuffer[BLOCK_SIZE];
+
 
 #define TEN_US 160
 
@@ -36,7 +46,6 @@ const uint8_t   sin[SINE_WAVE_ARRAY_LENGTH] = {128, 159, 187, 213, 233, 248, 255
 //----------------------------------------------
 
 void main(void) {
-
     uint8_t status;
     uint16_t i, blockCount;
     uint32_t sdCardAddress = 0x00000000;
@@ -64,6 +73,7 @@ void main(void) {
     SPI2_Close();
     SPI2_Open(CLASSIC_FWPORT);
 
+    initSDCard();
     for (;;) {
 
         if (EUSART1_IsRxReady()) { // wait for incoming data on USART
@@ -164,12 +174,17 @@ void main(void) {
                     //--------------------------------------------
                     // w: write a block of BLOCK_SIZE bytes to SD card
                     //--------------------------------------------
+                    
+                case '0':
+                    printf("SD Card address has been reset");
+                    sdCardAddress = 0;
+                    break;
                 case 'w':
                     printf("Probe RC4 to determine write period\r\n");
-                    for (i = 0; i < BLOCK_SIZE; i++) sdCardBuffer[i] = 255 - i;
+                    for (i = 0; i < BLOCK_SIZE; i++) blueBuffer[i] = 255 - i;
 
                     WRITE_TIME_PIN_SetHigh();
-                    SDCARD_WriteBlock(sdCardAddress, sdCardBuffer);
+                    SDCARD_WriteBlock(sdCardAddress, blueBuffer);
                     while ((status = SDCARD_PollWriteComplete()) == WRITE_NOT_COMPLETE);
                     WRITE_TIME_PIN_SetLow();
 
@@ -188,7 +203,7 @@ void main(void) {
                 case 'r':
                     printf("Probe RC5 to determine write period\r\n");
                     READ_TIME_PIN_SetHigh();
-                    SDCARD_ReadBlock(sdCardAddress, sdCardBuffer);
+                    SDCARD_ReadBlock(sdCardAddress, blueBuffer);
                     READ_TIME_PIN_SetLow();
                     printf("Read block: \r\n");
                     printf("    Address:    ");
@@ -196,20 +211,20 @@ void main(void) {
                     printf(":");
                     printf("%04x", sdCardAddress & 0X0000FFFF);
                     printf("\r\n");
-                    hexDumpBuffer(sdCardBuffer);
+                    hexDumpBuffer(blueBuffer);
                     break;
                     
                 case '1':
-                    uint8_t sineIdx = 0;
-                    uint8_t blockCount = 0;
-                    for (blockCount = 0; blockCount < MAX_NUM_BLOCKS; blockCount++) {
+                    uint16_t sineIdx = 0;
+                    uint16_t blockCount = 0;
+                    for (blockCount = 0; blockCount < 5; blockCount++) {
                         // For loop to fill the red buffer with 512 sine wave samples
-                        for (uint8_t i = 0; i < BLOCK_SIZE; i++) {
-                            redBuffer[i] = sin[sineIdx];
+                        for (uint16_t i = 0; i < BLOCK_SIZE; i++) {
+                            blueBuffer[i] = sin[sineIdx];
                             sineIdx = (sineIdx + 1) % 26;
                         }
                         
-                        SDCARD_WriteBlock(sdCardAddress, redBuffer);
+                        SDCARD_WriteBlock(sdCardAddress, blueBuffer);
                         while ((status = SDCARD_PollWriteComplete()) == WRITE_NOT_COMPLETE);
                         
                         // Slow down the write sequence to ensure that blocks are written
@@ -222,16 +237,9 @@ void main(void) {
                         if (sdCardAddress >= 0x04000000) {
                             sdCardAddress = 0x00000000;
                         }
-                        
-                        // User can press any key to stop
-                        if (EUSART1_IsRxReady()) {
-                            // Don't care what character it was
-                            char _ = EUSART1_Read();
-                            
-                            // Break out of the for loop
-                            break;
-                        }
+                   
                     }
+                    
                     
                     // Tell user  how many blocks were written
                     printf("Stored %u blocks of sine wave\r\n", blockCount);
@@ -248,12 +256,29 @@ void main(void) {
                     }
                     break;
                     
+                case 'P' :
+                    for(uint16_t i = 0; i < BLOCK_SIZE; i++) {
+                        blueBuffer[i] = 0;
+                    }
+                    while(true){
+                        SDCARD_WriteBlock(sdCardAddress, blueBuffer);
+                        while ((status = SDCARD_PollWriteComplete()) == WRITE_NOT_COMPLETE);
+                        TMR1_CounterSet(0x0000);
+                        PIR1bits.TMR1IF = 0;
+                        while (PIR1bits.TMR1IF == 0);
+                        // Increment address
+                        sdCardAddress += BLOCK_SIZE;
+                        
+                    }
+                    break;
+                    
                 case 'W':
-                    printf("PRess any key to start recording audio and press any key to stop recording.\r\n");
+                    printf("Press any key to start recording audio and press any key to stop recording.\r\n");
                     
                     // Wait for key press
                     while (!EUSART1_IsRxReady());
-                    
+                    char uuuu = EUSART1_Read();
+                    printf("Now saving data.");
                     // Signal to start filling buffer
                     redIdx = 0;
                     blueIdx = 0;
@@ -264,7 +289,13 @@ void main(void) {
                         while (systemState == R_FILL_B_WRITE);
                         
                         // Write red buffer to SD card
-                        SDCARD_WriteBlock(sdCardAddress, redBuffer);
+                        
+
+                       SDCARD_WriteBlock(sdCardAddress, redBuffer);
+                       while ((status = SDCARD_PollWriteComplete()) == WRITE_NOT_COMPLETE);
+                        TMR1_CounterSet(0x0000);
+                        PIR1bits.TMR1IF = 0;
+                        while (PIR1bits.TMR1IF == 0);
                         
                         // Increment address
                         sdCardAddress += BLOCK_SIZE;
@@ -277,7 +308,11 @@ void main(void) {
                         while (systemState == B_FILL_R_WRITE);
                         
                         // Write blue buffer to SD card
-                        SDCARD_WriteBlock(sdCardAddress, blueBuffer);
+                      SDCARD_WriteBlock(sdCardAddress, blueBuffer);
+                      while ((status = SDCARD_PollWriteComplete()) == WRITE_NOT_COMPLETE);
+                        TMR1_CounterSet(0x0000);
+                        PIR1bits.TMR1IF = 0;
+                        while (PIR1bits.TMR1IF == 0);
                         
                         sdCardAddress += BLOCK_SIZE;
                         
@@ -288,7 +323,7 @@ void main(void) {
                         // Break out of loop if user enters character
                         if (EUSART1_IsRxReady()) {
                             char _ = EUSART1_Read();
-                            
+                            printf("Recording complete");
                             systemState = IDLE;
                             
                             break;
@@ -310,21 +345,24 @@ void main(void) {
                     while (!EUSART1_IsRxReady());
                     char _ = EUSART1_Read();
                     
-                    for (uint8_t i = 0; i < MAX_NUM_BLOCKS; i++) {
-                        SDCARD_ReadBlock(sdCardAddress, sdCardBuffer);
+                    for (uint16_t i = 0; i < MAX_NUM_BLOCKS; i++) {
+                        SDCARD_ReadBlock(sdCardAddress, blueBuffer);
                         sdCardAddress += BLOCK_SIZE;
                         if (sdCardAddress >= 0x04000000) {
                             sdCardAddress = 0x00000000;
                         }
                         
-                        for (uint8_t j = 0; j < BLOCK_SIZE; j++) {
-                            printf("%u\r\n", sdCardBuffer[j]);
-                        }
-                        
-                        if (EUSART1_IsRxReady()) {
+                        for (uint16_t j = 0; j < BLOCK_SIZE; j++) {
+                            printf("%u\r\n", blueBuffer[j]);
+                            
+                            if (EUSART1_IsRxReady()) {
                             (void) EUSART1_Read();
                             break;
                         }
+
+                        }
+                        
+                        
                     }
                     
                     printf("To close the file follow these instructions:\r\n\r\n");
@@ -371,10 +409,11 @@ void myTMR0ISR(void) {
         case B_FILL_R_WRITE:
             // Start new conversion
             ADCON0bits.GO_NOT_DONE = 1;
+            uint8_t micReadInVal = ADRESH;
             
             // If currently filling red buffer write to red
-            if (R_FILL_B_WRITE) {
-                redBuffer[redIdx] = ADRESH;
+            if (systemState == R_FILL_B_WRITE) {
+                redBuffer[redIdx] = micReadInVal;
                 redIdx++;
                 if (redIdx == BLOCK_SIZE) {
                     // Swap buffers if necessary
@@ -383,7 +422,7 @@ void myTMR0ISR(void) {
                 }
             // If not writing to red, write to blue
             } else {
-                blueBuffer[blueIdx] = ADRESH;
+                blueBuffer[blueIdx] = micReadInVal;
                 blueIdx++;
                 if (blueIdx == BLOCK_SIZE) {
                     // Swap buffers if necessary

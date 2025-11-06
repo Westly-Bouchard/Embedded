@@ -2,14 +2,14 @@
 
 manifest_file_version: 1.0.0
 project: lab09
-creation_date: 2025-11-03T21:44:49.921-07:00[America/Denver]
+creation_date: 2025-11-05T21:47:25.221-07:00[America/Denver]
 operating_system: Linux
 mcc_mode: IDE
 mcc_mode_version: v6.25
-device_name: PIC18F26K22
+device_name: PIC18F25K22
 compiler: XC8 3.10
-mcc_version: 5.6.2
-mcc_core_version: 5.8.2
+mcc_version: 5.6.3
+mcc_core_version: 5.8.3
 content_manager_version: 6.0.3
 is_mcc_offline: false
 is_using_prerelease_versions: false
@@ -22,6 +22,8 @@ modules:
 - {name: '@mchp-mcc/pic18-configuration-bits-v8', type: MELODY, version: 1.0.3}
 - {name: '@mchp-mcc/pic18-pin-manager', type: MELODY, version: 3.7.1}
 - {name: '@mchp-mcc/pin-content-processor', type: MELODY, version: 3.10.0}
+- {name: '@mchp-mcc/scf-pic8-adc-v3', type: MELODY, version: 1.0.0}
+- {name: '@mchp-mcc/scf-pic8-ccp-v2', type: MELODY, version: 1.0.7}
 - {name: '@mchp-mcc/scf-pic8-eusart-v1', type: MELODY, version: 7.1.8}
 - {name: '@mchp-mcc/scf-pic8-interrupt-v4', type: MELODY, version: 1.0.2}
 - {name: '@mchp-mcc/scf-pic8-mssp-v1', type: MELODY, version: 7.0.3}
