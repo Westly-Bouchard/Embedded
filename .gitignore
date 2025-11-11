@@ -7,3 +7,8 @@
 /lab7.X/build/
 /Lab08.X/dist/
 /Lab08.X/build/
+/lab10.X/build/
+/lab10.X/dist/
+
+/*/out
+/*/_build

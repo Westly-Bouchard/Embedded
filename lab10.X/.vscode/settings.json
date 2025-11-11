@@ -1,0 +1,11 @@
+{
+    "mplab.clangd.arguments": [
+        "--compile-commands-dir=${workspaceFolder}/_build/lab10/default"
+    ],
+    "mplab.clangd.path": "/Applications/microchip/xc8/v3.00/bin/xc8-clangd",
+    "C_Cpp.intelliSenseEngine": "disabled",
+    "cmake.sourceDirectory": "/Users/westlybouchard/Documents/Embedded/Embedded/lab10.X/cmake/lab10/default",
+    "cSpell.words": [
+        "EPWM"
+    ]
+}
