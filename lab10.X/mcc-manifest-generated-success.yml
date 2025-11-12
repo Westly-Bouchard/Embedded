@@ -2,14 +2,14 @@
 
 manifest_file_version: 1.0.0
 project: lab10
-creation_date: 2025-11-10T13:43:59.042-07:00[America/Denver]
-operating_system: Mac OS X
+creation_date: 2025-11-11T21:28:44.714-07:00[America/Denver]
+operating_system: Linux
 mcc_mode: IDE
 mcc_mode_version: v6.25
 device_name: PIC18F25K22
-compiler: XC8 3.00
-mcc_version: 5.6.2
-mcc_core_version: 5.8.2
+compiler: XC8 3.10
+mcc_version: 5.6.3
+mcc_core_version: 5.8.3
 content_manager_version: 6.0.3
 is_mcc_offline: false
 is_using_prerelease_versions: false

@@ -12,7 +12,7 @@
  * @version Package Version 2.1.0
  */
 /*
-© [2025] Microchip Technology Inc. and its subsidiaries.
+? [2025] Microchip Technology Inc. and its subsidiaries.
 
     Subject to your compliance with these terms, you may use Microchip 
     software and any derivatives exclusively with Microchip products. 
@@ -39,7 +39,7 @@
 
 /**
  * @misradeviation{@advisory,2.5}
- * MPLAB® Code Configurator (MCC) Melody drivers provide macros that can be added to an application.
+ * MPLAB? Code Configurator (MCC) Melody drivers provide macros that can be added to an application.
  * It depends on the application whether a macro is used or not. 
  */
  
@@ -115,17 +115,31 @@
 #define Timer1_StartSinglePulseAcquisition TMR1_SinglePulseAcquisitionStart
 /**
  * @ingroup tmr1
- * @brief Defines the Custom Name for the \ref TMR1_OverflowStatusGet API.
- *        The TMR1_HasOverflowOccured will be deprecated in the future release. Use TMR1_OverflowStatusGet instead.
+ * @brief Defines the Custom Name for the \ref TMR1_OverflowInterruptEnable API.
+ *        The TMR1_TMRInterruptEnable will be deprecated in the future release. Use TMR1_OverflowInterruptEnable instead.
  */
 /* cppcheck-suppress misra-c2012-2.5 */
-#define TMR1_HasOverflowOccured TMR1_OverflowStatusGet
+#define TMR1_TMRInterruptEnable TMR1_OverflowInterruptEnable
 /**
  * @ingroup tmr1
- * @brief Defines the Custom Name for the \ref TMR1_OverflowStatusGet API.
- *        The Timer1_HasOverflowOccured will be deprecated in the future release. Use Timer1_OverflowStatusGet instead.
+ * @brief Defines the Custom Name for the \ref TMR1_OverflowInterruptEnable API.
+ *        The Timer1_TMRInterruptEnable will be deprecated in the future release. Use TMR1_OverflowInterruptEnable instead.
  */
 /* cppcheck-suppress misra-c2012-2.5 */
-#define Timer1_HasOverflowOccured TMR1_OverflowStatusGet
+#define Timer1_TMRInterruptEnable TMR1_OverflowInterruptEnable
+/**
+ * @ingroup tmr1
+ * @brief Defines the Custom Name for the \ref TMR1_OverflowInterruptDisable API.
+ *        The TMR1_TMRInterruptDisable will be deprecated in the future release. Use TMR1_OverflowInterruptDisable instead.
+ */
+/* cppcheck-suppress misra-c2012-2.5 */
+#define TMR1_TMRInterruptDisable TMR1_OverflowInterruptDisable
+/**
+ * @ingroup tmr1
+ * @brief Defines the Custom Name for the \ref TMR1_OverflowInterruptDisable API.
+ *        The Timer1_TMRInterruptDisable will be deprecated in the future release. Use TMR1_OverflowInterruptDisable instead.
+ */
+/* cppcheck-suppress misra-c2012-2.5 */
+#define Timer1_TMRInterruptDisable TMR1_OverflowInterruptDisable
 
 #endif // TMR1_DEPRECATED_H

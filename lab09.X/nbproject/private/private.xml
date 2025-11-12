@@ -3,14 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/burnerjobs/MPLAB/Embedded/lab09.X/sdCard.c</file>
             <file>file:/home/burnerjobs/MPLAB/Embedded/lab09.X/main.c</file>
-            <file>file:/home/burnerjobs/MPLAB/Embedded/lab09.X/mcc_generated_files/timer/src/tmr0.c</file>
-            <file>file:/home/burnerjobs/MPLAB/Embedded/lab09.X/mcc_generated_files/timer/src/tmr1.c</file>
-            <file>file:/home/burnerjobs/MPLAB/Embedded/lab09.X/mcc_generated_files/spi/src/mssp2.c</file>
-            <file>file:/home/burnerjobs/MPLAB/Embedded/lab09.X/mcc_generated_files/system/pins.h</file>
-            <file>file:/home/burnerjobs/MPLAB/Embedded/lab09.X/mcc_generated_files/system/src/interrupt.c</file>
-            <file>file:/home/burnerjobs/MPLAB/Embedded/lab09.X/mcc_generated_files/uart/src/eusart1.c</file>
         </group>
     </open-files>
 </project-private>
