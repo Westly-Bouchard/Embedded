@@ -11,7 +11,7 @@
 */
 
 /*
-© [2025] Microchip Technology Inc. and its subsidiaries.
+? [2025] Microchip Technology Inc. and its subsidiaries.
 
     Subject to your compliance with these terms, you may use Microchip 
     software and any derivatives exclusively with Microchip products. 
@@ -70,6 +70,28 @@ void  INTERRUPT_Initialize (void)
 
 }
 
+/**
+ * @ingroup interrupt
+ * @brief Services the Interrupt Service Routines (ISR) of enabled interrupts and is called every time an interrupt is triggered.
+ * @pre Interrupt Manager is initialized.
+ * @param None.
+ * @return None.
+ */
+void __interrupt() INTERRUPT_InterruptManager (void)
+{
+    // interrupt handler
+    if(INTCONbits.PEIE == 1)
+    {
+        if(INTCONbits.TMR0IE == 1 && INTCONbits.TMR0IF == 1)
+        {
+            TMR0_OverflowISR();
+        } 
+        if(PIE1bits.TMR1IE == 1 && PIR1bits.TMR1IF == 1)
+        {
+            TMR1_OverflowISR();
+        } 
+    }      
+}
 
 void INT0_ISR(void)
 {

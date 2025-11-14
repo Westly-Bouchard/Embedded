@@ -13,7 +13,7 @@
  * @version Package Version 2.1.0
 */
 /*
-© [2025] Microchip Technology Inc. and its subsidiaries.
+? [2025] Microchip Technology Inc. and its subsidiaries.
 
     Subject to your compliance with these terms, you may use Microchip 
     software and any derivatives exclusively with Microchip products. 
@@ -42,7 +42,7 @@
 
 /**
  * @misradeviation{@advisory,2.5}
- * MPLAB® Code Configurator (MCC) Melody drivers provide macros that can be added to an application.
+ * MPLAB? Code Configurator (MCC) Melody drivers provide macros that can be added to an application.
  * It depends on the application whether a macro is used or not. 
  */
 
@@ -125,22 +125,28 @@
 #define Timer1_OverflowCallbackRegister TMR1_OverflowCallbackRegister
 /**
  * @ingroup tmr1
+ * @brief Defines the Custom Name for the \ref TMR1_OverflowISR API
+ */
+ /* cppcheck-suppress misra-c2012-2.5 */
+#define Timer1_OverflowISR TMR1_OverflowISR
+/**
+ * @ingroup tmr1
  * @brief Defines the Custom Name for the \ref TMR1_Tasks API
  */
  /* cppcheck-suppress misra-c2012-2.5 */
 #define Timer1_Tasks TMR1_Tasks
-/**
- * @ingroup tmr1
- * @brief Defines the Custom Name for the \ref TMR1_OverflowStatusGet API
- */
- /* cppcheck-suppress misra-c2012-2.5 */
- #define Timer1_OverflowStatusGet TMR1_OverflowStatusGet
  /**
  * @ingroup tmr1
- * @brief Defines the Custom Name for the \ref TMR1_OverflowStatusClear API
+ * @brief Defines the Custom Name for the \ref TMR1_OverflowInterruptEnable API
  */
  /* cppcheck-suppress misra-c2012-2.5 */
-#define Timer1_OverflowStatusClear TMR1_OverflowStatusClear
+#define Timer1_OverflowInterruptEnable TMR1_OverflowInterruptEnable
+/**
+ * @ingroup tmr1
+ * @brief Defines the Custom Name for the \ref TMR1_OverflowInterruptDisable API
+ */
+ /* cppcheck-suppress misra-c2012-2.5 */
+#define Timer1_OverflowInterruptDisable TMR1_OverflowInterruptDisable
 /**
  * @ingroup tmr1
  * @brief Defines the Custom Name for the \ref TMR1_GateStateGet API.
@@ -283,20 +289,27 @@ uint8_t TMR1_GateStateGet(void);
 
 /**
  * @ingroup tmr1
- * @brief Checks for the Timer Overflow flag when in Non-Interrupt mode.
+ * @brief Enables TMR1 interrupt.
  * @param None.
- * @retval True  - Timer overflow has occurred.
- * @retval False - Timer overflow has not occurred.
+ * @return None.
  */
-bool TMR1_OverflowStatusGet(void);
+void TMR1_OverflowInterruptEnable(void);
 
 /**
  * @ingroup tmr1
- * @brief Clears the Timer Overflow flag in Non-Interrupt mode.
+ * @brief Disables  TMR1 interrupt.
  * @param None.
- * @retval None.
+ * @return None.
  */
-void TMR1_OverflowStatusClear(void);
+void TMR1_OverflowInterruptDisable(void);
+
+/**
+ * @ingroup tmr1
+ * @brief Interrupt Service Routine (ISR) for TMR1 overflow interrupt.
+ * @param None.
+ * @return None.
+ */
+void TMR1_OverflowISR(void);
 
 /**
  * @ingroup tmr1

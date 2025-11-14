@@ -1,9 +1,5 @@
-#include "mcc_generated_files/pwm/eccp1.h"
 #include "mcc_generated_files/system/system.h"
-
-#include "mcc_generated_files/uart/eusart1.h"
 #include "sdCard.h"
-#include <pic18f25k22.h>
 #pragma warning disable 520     // warning: (520) function "xyz" is never called  3
 #pragma warning disable 1498    // fputc.c:16:: warning: (1498) pointer (unknown)
 
@@ -20,23 +16,29 @@ void myTMR0ISR(void);
 #define BLOCK_SIZE          512
 #define MAX_NUM_BLOCKS      128
 
+#define SINE_WAVE_ARRAY_LENGTH 26
+
 // Large arrays need to be defined as global even though you may only need to 
 // use them in main.  This quirk will be important in the next two assignments.
-uint16_t redIdx, blueIdx;
-uint8_t blueBuffer[BLOCK_SIZE];
-uint8_t redBuffer[BLOCK_SIZE];
+
+    uint8_t blueBuffer[BLOCK_SIZE];
+    uint8_t redBuffer[BLOCK_SIZE];
+    
     
 
 typedef enum { IDLE, R_FILL_B_WRITE, B_FILL_R_WRITE, R_FILL_B_PLAY, B_FILL_R_PLAY } state;
 
 state systemState = IDLE;
 
+uint16_t redIdx, blueIdx;
+
+
+
 #define TEN_US 160
 
 // Default rate is 100us
 uint16_t sampleRate = 1600;
 
-#define SINE_WAVE_ARRAY_LENGTH 26
 const uint8_t   sin[SINE_WAVE_ARRAY_LENGTH] = {128, 159, 187, 213, 233, 248, 255, 255, 248, 233, 213, 187, 159, 128, 97, 69, 43, 23, 8, 1, 1, 8, 23, 43, 69, 97};
 
 //----------------------------------------------
@@ -50,9 +52,8 @@ void main(void) {
     char cmd, letter;
 
     letter = '0';
-
-    SYSTEM_Initialize();
     EPWM1_LoadDutyValue(0);
+    SYSTEM_Initialize();
     CS_SetHigh();
 
     // Provide Baud rate generator time to stabilize before splash screen
@@ -174,16 +175,30 @@ void main(void) {
                     // w: write a block of BLOCK_SIZE bytes to SD card
                     //--------------------------------------------
                     
-                case '0': {
+                case '0':
                     printf("SD Card address has been reset");
                     sdCardAddress = 0;
                     break;
-                }
+                case 'w':
+                    printf("Probe RC4 to determine write period\r\n");
+                    for (i = 0; i < BLOCK_SIZE; i++) blueBuffer[i] = 255 - i;
+                    SDCARD_WriteBlock(sdCardAddress, blueBuffer);
+                    while ((status = SDCARD_PollWriteComplete()) == WRITE_NOT_COMPLETE);
+
+                    printf("Write block of decremented 8-bit values:\r\n");
+                    printf("    Address:    ");
+                    printf("%04x", sdCardAddress >> 16);
+                    printf(":");
+                    printf("%04x", sdCardAddress & 0X0000FFFF);
+                    printf("\r\n");
+                    printf("    Status:     %02x\r\n", status);
+                    break;
 
                     //--------------------------------------------
                     // r: read a block of BLOCK_SIZE bytes from SD card                
                     //--------------------------------------------
-                case 'r': {
+                case 'r':
+                    printf("Probe RC5 to determine write period\r\n");
                     SDCARD_ReadBlock(sdCardAddress, blueBuffer);
                     printf("Read block: \r\n");
                     printf("    Address:    ");
@@ -193,9 +208,25 @@ void main(void) {
                     printf("\r\n");
                     hexDumpBuffer(blueBuffer);
                     break;
-                }
+                
+                case 'C':
+                    for(;;) {
+                        for(uint16_t i = 0; i<BLOCK_SIZE; i++) {
+                            blueBuffer[i] = 0;
+                        }
+                        SDCARD_WriteBlock(sdCardAddress,blueBuffer);
+                        TMR1_CounterSet(0x0000);
+                        PIR1bits.TMR1IF = 0;
+                        while (PIR1bits.TMR1IF == 0);
+                        printf("Cleared a block\r\n");
+                        if (EUSART1_IsRxReady()) {
+                            char _ = EUSART1_Read();
+                            systemState = IDLE;
+                            break;
+                        }
+                    }
                     
-                case '1': {
+                case '1':
                     uint16_t sineIdx = 0;
                     uint16_t blockCount = 0;
                     for (blockCount = 0; blockCount < 5; blockCount++) {
@@ -225,7 +256,6 @@ void main(void) {
                     // Tell user  how many blocks were written
                     printf("Stored %u blocks of sine wave\r\n", blockCount);
                     break;
-                }
                     
                 case '+':
                 case '-':
@@ -238,125 +268,6 @@ void main(void) {
                     }
                     break;
                     
-                case 'D' :
-                    for(uint16_t i = 0; i < BLOCK_SIZE; i++) {
-                        blueBuffer[i] = 0;
-                    }
-                    while(true){
-                        SDCARD_WriteBlock(sdCardAddress, blueBuffer);
-                        while ((status = SDCARD_PollWriteComplete()) == WRITE_NOT_COMPLETE);
-                        TMR1_CounterSet(0x0000);
-                        PIR1bits.TMR1IF = 0;
-                        while (PIR1bits.TMR1IF == 0);
-                        // Increment address
-                        sdCardAddress += BLOCK_SIZE;
-                        
-                    }
-                    break;
-                    
-                case 'W': {
-                    printf("Press any key to start recording audio and press any key to stop recording.\r\n");
-                    
-                    // Wait for key press
-                    while (!EUSART1_IsRxReady());
-                    char uuuu = EUSART1_Read();
-                    printf("Now saving data.");
-                    // Signal to start filling buffer
-                    redIdx = 0;
-                    blueIdx = 0;
-                    systemState = R_FILL_B_WRITE;
-                    
-                    for (;;) {
-                        // Wait for red buffer to fill
-                        while (systemState == R_FILL_B_WRITE);
-                        
-                        // Write red buffer to SD card
-                        
-
-                       SDCARD_WriteBlock(sdCardAddress, redBuffer);
-                       while ((status = SDCARD_PollWriteComplete()) == WRITE_NOT_COMPLETE);
-                        TMR1_CounterSet(0x0000);
-                        PIR1bits.TMR1IF = 0;
-                        while (PIR1bits.TMR1IF == 0);
-                        
-                        // Increment address
-                        sdCardAddress += BLOCK_SIZE;
-                        
-                        if (sdCardAddress >= 0x04000000) {
-                            sdCardAddress = 0x00000000;
-                        }
-                        
-                        // Wait for blue buffer to fill
-                        while (systemState == B_FILL_R_WRITE);
-                        
-                        // Write blue buffer to SD card
-                      SDCARD_WriteBlock(sdCardAddress, blueBuffer);
-                      while ((status = SDCARD_PollWriteComplete()) == WRITE_NOT_COMPLETE);
-                        TMR1_CounterSet(0x0000);
-                        PIR1bits.TMR1IF = 0;
-                        while (PIR1bits.TMR1IF == 0);
-                        
-                        sdCardAddress += BLOCK_SIZE;
-                        
-                        if (sdCardAddress >= 0x04000000) {
-                            sdCardAddress = 0x00000000;
-                        }
-                        
-                        // Break out of loop if user enters character
-                        if (EUSART1_IsRxReady()) {
-                            char _ = EUSART1_Read();
-                            printf("Recording complete");
-                            systemState = IDLE;
-                            
-                            break;
-                        }
-                    }
-                    break;
-                }
-                    
-                case 's': {
-                    printf("You may terminate spooling at any time with a keypress.\r\n");
-                    printf("To spool terminal contents into a file follow these instructions:\r\n");
-                    printf("Right mouse click on the upper left of the PuTTY window\r\n");
-                    printf("Select:\tChange settings...\r\n");
-                    printf("Select:\tLogging\r\n");
-                    printf("Select:\tSession logging: All session output\r\n");
-                    printf("Log file name:   Browse and provide a .csv extension to your file name\r\n");
-                    printf("Select:\tApply");
-                    printf("Press any key to start\r\n");
-                    
-                    while (!EUSART1_IsRxReady());
-                    char _ = EUSART1_Read();
-                    
-                    for (uint16_t i = 0; i < MAX_NUM_BLOCKS; i++) {
-                        SDCARD_ReadBlock(sdCardAddress, blueBuffer);
-                        sdCardAddress += BLOCK_SIZE;
-                        if (sdCardAddress >= 0x04000000) {
-                            sdCardAddress = 0x00000000;
-                        }
-                        
-                        for (uint16_t j = 0; j < BLOCK_SIZE; j++) {
-                            printf("%u\r\n", blueBuffer[j]);
-                            
-                            if (EUSART1_IsRxReady()) {
-                            (void) EUSART1_Read();
-                            break;
-                        }
-
-                        }
-                        
-                        
-                    }
-                    
-                    printf("To close the file follow these instructions:\r\n\r\n");
-                    printf("Right mouse click on the upper left of the PuTTY window\r\n");
-                    printf("Select:\tChange settings...\r\n");
-                    printf("Select:\tLogging\r\n");
-                    printf("Select:\tSession logging: None\r\n");
-                    printf("Select:\tApply\r\n");
-                    break;
-                }
-
                 case 'P': {
                     printf("Press any key to stop playback\r\n");
                     redIdx = 0;
@@ -401,12 +312,112 @@ void main(void) {
                         if (EUSART1_IsRxReady()) {
                             char _ = EUSART1_Read();
                             systemState = IDLE;
+                            printf("Playing Stopped\r\n");
+                            break;
+                        }
+                        
+                        
+                    }
+                    break;
+                }
 
+                    
+                case 'W':
+                    printf("Press any key to start recording audio and press any key to stop recording.\r\n");
+                    
+                    // Wait for key press
+                    while (!EUSART1_IsRxReady());
+                    char uuuu = EUSART1_Read();
+                    printf("Now saving data.");
+                    // Signal to start filling buffer
+                    redIdx = 0;
+                    blueIdx = 0;
+                    systemState = R_FILL_B_WRITE;
+                    
+                    for (;;) {
+                        // Wait for red buffer to fill
+                        while (systemState == R_FILL_B_WRITE);
+                        
+                        // Write red buffer to SD card
+                        
+
+                       SDCARD_WriteBlock(sdCardAddress, redBuffer);
+                       while ((status = SDCARD_PollWriteComplete()) == WRITE_NOT_COMPLETE);
+
+                        
+                        // Increment address
+                        sdCardAddress += BLOCK_SIZE;
+                        
+                        if (sdCardAddress >= 0x04000000) {
+                            sdCardAddress = 0x00000000;
+                        }
+                        
+                        // Wait for blue buffer to fill
+                        while (systemState == B_FILL_R_WRITE);
+                        
+                        // Write blue buffer to SD card
+                      SDCARD_WriteBlock(sdCardAddress, blueBuffer);
+                      while ((status = SDCARD_PollWriteComplete()) == WRITE_NOT_COMPLETE);
+
+                        
+                        sdCardAddress += BLOCK_SIZE;
+                        
+                        if (sdCardAddress >= 0x04000000) {
+                            sdCardAddress = 0x00000000;
+                        }
+                        
+                        // Break out of loop if user enters character
+                        if (EUSART1_IsRxReady()) {
+                            char _ = EUSART1_Read();
+                            printf("Recording complete");
+                            systemState = IDLE;
+                            
                             break;
                         }
                     }
                     break;
-                }
+                    
+                case 's':
+                    printf("You may terminate spooling at any time with a keypress.\r\n");
+                    printf("To spool terminal contents into a file follow these instructions:\r\n");
+                    printf("Right mouse click on the upper left of the PuTTY window\r\n");
+                    printf("Select:\tChange settings...\r\n");
+                    printf("Select:\tLogging\r\n");
+                    printf("Select:\tSession logging: All session output\r\n");
+                    printf("Log file name:   Browse and provide a .csv extension to your file name\r\n");
+                    printf("Select:\tApply");
+                    printf("Press any key to start\r\n");
+                    
+                    while (!EUSART1_IsRxReady());
+                    char _ = EUSART1_Read();
+                    
+                    for (uint16_t i = 0; i < MAX_NUM_BLOCKS; i++) {
+                        SDCARD_ReadBlock(sdCardAddress, blueBuffer);
+                        sdCardAddress += BLOCK_SIZE;
+                        if (sdCardAddress >= 0x04000000) {
+                            sdCardAddress = 0x00000000;
+                        }
+                        
+                        for (uint16_t j = 0; j < BLOCK_SIZE; j++) {
+                            printf("%u\r\n", blueBuffer[j]);
+                            
+                            if (EUSART1_IsRxReady()) {
+                            (void) EUSART1_Read();
+                            break;
+                        }
+
+                        }
+                        
+                        
+                    }
+                    
+                    printf("To close the file follow these instructions:\r\n\r\n");
+                    printf("Right mouse click on the upper left of the PuTTY window\r\n");
+                    printf("Select:\tChange settings...\r\n");
+                    printf("Select:\tLogging\r\n");
+                    printf("Select:\tSession logging: None\r\n");
+                    printf("Select:\tApply\r\n");
+                    break;
                     
                     //--------------------------------------------
                     // If something unknown is hit, tell user
@@ -441,7 +452,7 @@ void myTMR0ISR(void) {
             break;
             
         case R_FILL_B_WRITE:
-        case B_FILL_R_WRITE: {
+        case B_FILL_R_WRITE:
             // Start new conversion
             ADCON0bits.GO_NOT_DONE = 1;
             uint8_t micReadInVal = ADRESH;
@@ -466,28 +477,29 @@ void myTMR0ISR(void) {
                 }
             }
             break;
-        }
             
         case R_FILL_B_PLAY: {
             EPWM1_LoadDutyValue(blueBuffer[blueIdx]);
             blueIdx++;
-
-            if (blueIdx == BLOCK_SIZE) {
+            
+            if (blueIdx >= BLOCK_SIZE) {
                 blueIdx = 0;
                 systemState = B_FILL_R_PLAY;
             }
             break;
         }
-
+        
         case B_FILL_R_PLAY: {
             EPWM1_LoadDutyValue(redBuffer[redIdx]);
             redIdx++;
-
-            if (redIdx == BLOCK_SIZE) {
+            
+            if(redIdx >= BLOCK_SIZE) {
                 redIdx = 0;
                 systemState = R_FILL_B_PLAY;
             }
-        }
+            
+        }  
+           
     }
     
     // Set up next interrupt]

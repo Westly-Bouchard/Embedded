@@ -14,7 +14,7 @@
  * @version Package Version 2.0.0
 */
 /*
-© [2025] Microchip Technology Inc. and its subsidiaries.
+? [2025] Microchip Technology Inc. and its subsidiaries.
 
     Subject to your compliance with these terms, you may use Microchip 
     software and any derivatives exclusively with Microchip products. 
@@ -54,7 +54,8 @@ void TMR0_Initialize(void)
     tmr0PeriodCount = 0U;
     TMR0_OverflowCallbackRegister(TMR0_DefaultOverflowCallback);
     
-    INTCONbits.TMR0IF = 0;
+    INTCONbits.TMR0IF = 0;	   
+    INTCONbits.TMR0IE = 1;	
 
     T0CON = (7 << _T0CON_T0PS_POSN)   // T0PS 1:256
         | (1 << _T0CON_PSA_POSN)   // PSA not_assigned
@@ -125,6 +126,30 @@ uint16_t TMR0_MaxCountGet(void)
     return TMR0_MAX_COUNT;
 }
 
+void TMR0_TMRInterruptEnable(void)
+{
+    INTCONbits.TMR0IE = 1;
+}
+
+void TMR0_TMRInterruptDisable(void)
+{
+    INTCONbits.TMR0IE = 0;
+}
+
+void TMR0_OverflowISR(void)
+{
+
+    //Reload TMR0
+    //Write to the Timer0 register
+    TMR0H = (uint8_t)(tmr0PeriodCount >> 8);
+    TMR0L = (uint8_t)(tmr0PeriodCount);
+
+    if(NULL != TMR0_OverflowCallback)
+    {
+        TMR0_OverflowCallback();
+    }
+    INTCONbits.TMR0IF = 0;
+}
 
 void TMR0_OverflowCallbackRegister(void (* callbackHandler)(void))
 {
@@ -136,26 +161,3 @@ static void TMR0_DefaultOverflowCallback(void)
     // Default interrupt handler
 }
 
-bool TMR0_OverflowStatusGet(void)
-{
-    return INTCONbits.TMR0IF;
-}
-
-void TMR0_OverflowStatusClear(void)
-{
-    INTCONbits.TMR0IF = 0;
-}
-
-void TMR0_Tasks(void)
-{
-    if(1U == INTCONbits.TMR0IF)
-    {
-        TMR0H = (uint8_t)(tmr0PeriodCount >> 8);
-        TMR0L = (uint8_t)(tmr0PeriodCount);
-        if(NULL != TMR0_OverflowCallback)
-        {
-            TMR0_OverflowCallback();
-        }
-        INTCONbits.TMR0IF = 0;
-    }
-}

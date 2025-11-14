@@ -11,7 +11,7 @@
 */
 
 /*
-© [2025] Microchip Technology Inc. and its subsidiaries.
+? [2025] Microchip Technology Inc. and its subsidiaries.
 
     Subject to your compliance with these terms, you may use Microchip 
     software and any derivatives exclusively with Microchip products. 
@@ -65,8 +65,8 @@ void ADC_Initialize(void)
     ADRESH = 0x0;
 
 
-    // ADON enabled; GO_nDONE undefined; CHS AN0; 
-    ADCON0 = 0x3;
+    // ADON enabled; GO_nDONE undefined; CHS AN4; 
+    ADCON0 = 0x13;
 
     //Clear the ADC interrupt flag
     PIR1bits.ADIF = 0;

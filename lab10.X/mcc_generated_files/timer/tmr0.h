@@ -12,7 +12,7 @@
  * @version Package Version 2.0.0
 */
 /*
-© [2025] Microchip Technology Inc. and its subsidiaries.
+? [2025] Microchip Technology Inc. and its subsidiaries.
 
     Subject to your compliance with these terms, you may use Microchip 
     software and any derivatives exclusively with Microchip products. 
@@ -192,31 +192,31 @@
 
 /**
  * @ingroup tmr016bit
+ * @brief Defines the Custom Name for the \ref TMR0_TMRInterruptEnable API.
+ */
+/* cppcheck-suppress misra-c2012-2.5 */ 
+#define Timer0_TMRInterruptEnable TMR0_TMRInterruptEnable
+
+/**
+ * @ingroup tmr016bit
+ * @brief Defines the Custom Name for the \ref TMR0_TMRInterruptDisable API.
+ */
+/* cppcheck-suppress misra-c2012-2.5 */ 
+#define Timer0_TMRInterruptDisable TMR0_TMRInterruptDisable
+
+/**
+ * @ingroup tmr016bit
+ * @brief Defines the Custom Name for the \ref TMR0_OverflowISR API.
+ */
+/* cppcheck-suppress misra-c2012-2.5 */ 
+#define Timer0_OverflowISR TMR0_OverflowISR
+
+/**
+ * @ingroup tmr016bit
  * @brief Defines the Custom Name for the \ref TMR0_OverflowCallbackRegister API.
  */
 /* cppcheck-suppress misra-c2012-2.5 */ 
 #define Timer0_OverflowCallbackRegister TMR0_OverflowCallbackRegister
-
-/**
- * @ingroup tmr016bit
- * @brief Defines the Custom Name for the \ref TMR0_Tasks API.
- */
-/* cppcheck-suppress misra-c2012-2.5 */ 
-#define Timer0_Tasks TMR0_Tasks
-
-/**
- * @ingroup tmr016bit
- * @brief Defines the Custom Name for the \ref TMR0_OverflowStatusGet API.
- */
-/* cppcheck-suppress misra-c2012-2.5 */ 
-#define Timer0_OverflowStatusGet TMR0_OverflowStatusGet
-
-/**
- * @ingroup tmr016bit
- * @brief Defines the Custom Name for the \ref TMR0_OverflowStatusClear API.
- */
-/* cppcheck-suppress misra-c2012-2.5 */ 
-#define Timer0_OverflowStatusClear TMR0_OverflowStatusClear
 
 
 /**
@@ -310,35 +310,36 @@ uint16_t TMR0_MaxCountGet(void);
 
 /**
  * @ingroup tmr016bit
+ * @brief Enables the TMR0 interrupt.
+ * @param None.
+ * @return None.
+ */
+void TMR0_TMRInterruptEnable(void);
+
+/**
+ * @ingroup tmr016bit
+ * @brief Disables the TMR0 interrupt.
+ * @param None.
+ * @return None.
+ */
+void TMR0_TMRInterruptDisable(void);
+
+/**
+ * @ingroup tmr016bit
+ * @brief Interrupt Service Routine (ISR) for the TMR0 overflow interrupt.
+ * @param None.
+ * @return None.
+ */
+void TMR0_OverflowISR(void);
+
+/**
+ * @ingroup tmr016bit
  * @brief Registers a callback function for the TMR0 overflow event.
  * @param CallbackHandler - Address to the custom callback function
  * @return None.
  */
  void TMR0_OverflowCallbackRegister(void (* CallbackHandler)(void));
 
-/**
- * @ingroup tmr016bit
- * @brief Performs tasks to be executed during the timer overflow interrupt event
- * @param None.
- * @return None.
- */
-void TMR0_Tasks(void);
-
-/**
- * @ingroup tmr016bit
- * @brief Returns the status of the TMR0 Interrupt flag.
- * @param None.
- * @return Interrupt flag status
- */
-bool TMR0_OverflowStatusGet(void);
-
-/**
- * @ingroup tmr016bit
- * @brief Clears the TMR0 Interrupt flag.
- * @param None.
- * @return None.
- */
-void TMR0_OverflowStatusClear(void);
 
 /**
  * @}

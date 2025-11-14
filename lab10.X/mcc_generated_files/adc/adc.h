@@ -10,7 +10,7 @@
  * @version ADC Driver Version 1.0.0
  */
 /*
-© [2025] Microchip Technology Inc. and its subsidiaries.
+? [2025] Microchip Technology Inc. and its subsidiaries.
 
     Subject to your compliance with these terms, you may use Microchip 
     software and any derivatives exclusively with Microchip products. 
@@ -65,7 +65,7 @@ typedef enum
     posChannel_CTMU =  0x1d,
     posChannel_DAC =  0x1e,
     posChannel_FVRBuf2 =  0x1f,
-    posChannel_AN0 =  0x0
+    MIC_PIN =  0x4
 } adc_channel_t;
 /**
   Section: ADC Module APIs
